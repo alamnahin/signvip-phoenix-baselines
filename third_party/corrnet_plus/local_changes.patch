@@ -1,0 +1,382 @@
+diff --git a/CorrNet_Plus_CSLR/configs/phoenix2014-T.yaml b/CorrNet_Plus_CSLR/configs/phoenix2014-T.yaml
+index 2a7363f..9c43e9f 100644
+--- a/CorrNet_Plus_CSLR/configs/phoenix2014-T.yaml
++++ b/CorrNet_Plus_CSLR/configs/phoenix2014-T.yaml
+@@ -1,4 +1,4 @@
+-dataset_root: ./dataset/phoenix2014-T
++dataset_root: /raid_storage/shared_group/grp_motaz/data/PHOENIX-2014-T-release-v3/PHOENIX-2014-T
+ dict_path: ./preprocess/phoenix2014-T/gloss_dict.npy
+ evaluation_dir: ./evaluation/slr_eval
+ evaluation_prefix: phoenix2014-T-groundtruth
+diff --git a/CorrNet_Plus_CSLR/dataset/dataloader_video.py b/CorrNet_Plus_CSLR/dataset/dataloader_video.py
+index 296b571..f96280f 100644
+--- a/CorrNet_Plus_CSLR/dataset/dataloader_video.py
++++ b/CorrNet_Plus_CSLR/dataset/dataloader_video.py
+@@ -25,7 +25,8 @@ global kernel_sizes
+ 
+ class BaseFeeder(data.Dataset):
+     def __init__(self, prefix, gloss_dict, dataset='phoenix2014', drop_ratio=1, num_gloss=-1, mode="train", transform_mode=True,
+-                 datatype="lmdb", frame_interval=1, image_scale=1.0, kernel_size=1, input_size=224):
++                 datatype="lmdb", frame_interval=1, image_scale=1.0, kernel_size=1, input_size=224,
++                 feat_dir="fullFrame-210x260px", max_frames=None):
+         self.mode = mode
+         self.ng = num_gloss
+         self.prefix = prefix
+@@ -33,11 +34,13 @@ class BaseFeeder(data.Dataset):
+         self.data_type = datatype
+         self.dataset = dataset
+         self.input_size = input_size
+-        global kernel_sizes 
++        self.feat_dir = feat_dir
++        self.max_frames = int(max_frames) if max_frames is not None else None
++        global kernel_sizes
+         kernel_sizes = kernel_size
+         self.frame_interval = frame_interval # not implemented for read_features()
+         self.image_scale = image_scale # not implemented for read_features()
+-        self.feat_prefix = f"{prefix}/features/fullFrame-256x256px/{mode}"
++        self.feat_prefix = f"{prefix}/features/{feat_dir}/{mode}"
+         self.transform_mode = "train" if transform_mode else "test"
+         self.inputs_list = np.load(f"./preprocess/{dataset}/{mode}_info.npy", allow_pickle=True).item()
+         # self.inputs_list = np.load(f"{prefix}/annotations/manual/{mode}.corpus.npy", allow_pickle=True).item()
+@@ -64,21 +67,42 @@ class BaseFeeder(data.Dataset):
+     def read_video(self, index):
+         # load file info
+         fi = self.inputs_list[index]
++        if self.dataset == 'isharah1000':
++            video_path = os.path.join(self.prefix, fi['folder'])
++            capture = cv2.VideoCapture(video_path)
++            frames = []
++            while True:
++                ok, frame = capture.read()
++                if not ok:
++                    break
++                frames.append(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
++            capture.release()
++            if not frames:
++                raise RuntimeError("Could not decode video: {}".format(video_path))
++            offset = int(torch.randint(0, self.frame_interval, [1]))
++            frames = frames[offset::self.frame_interval]
++        else:
++            frames = None
+         if 'phoenix' in self.dataset:
+-            img_folder = os.path.join(self.prefix, "features/fullFrame-256x256px/" + fi['folder'])  
++            img_folder = os.path.join(self.prefix, f"features/{self.feat_dir}/" + fi['folder'])
+         elif self.dataset == 'CSL':
+-            img_folder = os.path.join(self.prefix, "features/fullFrame-256x256px/" + fi['folder'] + "/*.jpg")
++            img_folder = os.path.join(self.prefix, "features/fullFrame-210x260px/" + fi['folder'] + "/*.jpg")
+         elif self.dataset == 'CSL-Daily':
+             img_folder = os.path.join(self.prefix, fi['folder'])
+-        img_list = sorted(glob.glob(img_folder))
+-        img_list = img_list[int(torch.randint(0, self.frame_interval, [1]))::self.frame_interval]
++        if frames is None:
++            img_list = sorted(glob.glob(img_folder))
++            img_list = img_list[int(torch.randint(0, self.frame_interval, [1]))::self.frame_interval]
++            frames = [cv2.cvtColor(cv2.imread(img_path), cv2.COLOR_BGR2RGB) for img_path in img_list]
++        if self.max_frames is not None and len(frames) > self.max_frames:
++            frame_indices = np.linspace(0, len(frames) - 1, self.max_frames, dtype=np.int64)
++            frames = [frames[index] for index in frame_indices]
+         label_list = []
+         for phase in fi['label'].split(" "):
+             if phase == '':
+                 continue
+             if phase in self.dict.keys():
+                 label_list.append(self.dict[phase][0])
+-        return [cv2.cvtColor(cv2.imread(img_path), cv2.COLOR_BGR2RGB) for img_path in img_list], label_list, fi
++        return frames, label_list, fi
+ 
+     def read_features(self, index):
+         # load file info
+@@ -101,7 +125,9 @@ class BaseFeeder(data.Dataset):
+                 video_augmentation.RandomHorizontalFlip(0.5),
+                 video_augmentation.Resize(self.image_scale),
+                 video_augmentation.ToTensor(),
+-                video_augmentation.TemporalRescale(0.2, self.frame_interval),
++                video_augmentation.TemporalRescale(
++                    0.2, self.frame_interval, max_len=self.max_frames
++                ),
+             ])
+         else:
+             print("Apply testing transform.")
+diff --git a/CorrNet_Plus_CSLR/main.py b/CorrNet_Plus_CSLR/main.py
+index d837490..493a6ea 100644
+--- a/CorrNet_Plus_CSLR/main.py
++++ b/CorrNet_Plus_CSLR/main.py
+@@ -22,6 +22,12 @@ from modules.sync_batchnorm import convert_model
+ from seq_scripts import seq_train, seq_eval, seq_feature_generation
+ from torch.cuda.amp import autocast as autocast
+ 
++try:
++    import wandb
++    HAS_WANDB = True
++except ImportError:
++    HAS_WANDB = False
++
+ class Processor():
+     def __init__(self, arg):
+         self.arg = arg
+@@ -58,6 +64,10 @@ class Processor():
+             total_time = 0
+             epoch_time = 0
+             self.recoder.print_log('Parameters:\n{}\n'.format(str(vars(self.arg))))
++            if HAS_WANDB:
++                project = "corrnet_isharah1000" if self.arg.dataset == "isharah1000" else "corrnet_pose"
++                wandb.init(project=project, config=vars(self.arg),
++                           name=os.path.basename(self.arg.work_dir.rstrip("/")))
+             seq_model_list = []
+             for epoch in range(self.arg.optimizer_args['start_epoch'], self.arg.num_epoch):
+                 save_model = epoch % self.arg.save_interval == 0
+@@ -87,6 +97,8 @@ class Processor():
+                 torch.cuda.empty_cache()
+                 self.recoder.print_log('Epoch {} costs {} mins {} seconds'.format(epoch, int(epoch_time)//60, int(epoch_time)%60))
+             self.recoder.print_log('Training costs {} hours {} mins {} seconds'.format(int(total_time)//60//60, int(total_time)//60%60, int(total_time)%60))
++            if HAS_WANDB and wandb.run is not None:
++                wandb.finish()
+         elif self.arg.phase == 'test':
+             if self.arg.load_weights is None and self.arg.load_checkpoints is None:
+                 print('Please appoint --weights.')
+@@ -178,13 +190,13 @@ class Processor():
+             loss_weights=self.arg.loss_weights,
+         )
+         shutil.copy2(inspect.getfile(model_class), self.arg.work_dir)
++        model = self.model_to_device(model)
+         optimizer = utils.Optimizer(model, self.arg.optimizer_args)
+ 
+         if self.arg.load_weights:
+             self.load_model_weights(model, self.arg.load_weights)
+         elif self.arg.load_checkpoints:
+             self.load_checkpoint_weights(model, optimizer)
+-        model = self.model_to_device(model)
+         self.kernel_sizes = model.conv1d.kernel_size
+         print("Loading model finished.")
+         self.load_data()
+@@ -200,16 +212,28 @@ class Processor():
+         return model
+ 
+     def load_model_weights(self, model, weight_path):
+-        state_dict = torch.load(weight_path)
++        state_dict = torch.load(weight_path, map_location="cpu", weights_only=False)
+         if len(self.arg.ignore_weights):
+             for w in self.arg.ignore_weights:
+-                if state_dict.pop(w, None) is not None:
++                if state_dict['model_state_dict'].pop(w, None) is not None:
+                     print('Successfully Remove Weights: {}.'.format(w))
+                 else:
+                     print('Can Not Remove Weights: {}.'.format(w))
+         weights = self.modified_weights(state_dict['model_state_dict'], False)
+         # weights = self.modified_weights(state_dict['model_state_dict'])
+-        model.load_state_dict(weights, strict=True)
++        result = model.load_state_dict(weights, strict=not bool(self.arg.ignore_weights))
++        unexpected_missing = set(result.missing_keys) - set(self.arg.ignore_weights)
++        if unexpected_missing or result.unexpected_keys:
++            raise RuntimeError(
++                "Checkpoint mismatch: missing={} unexpected={}".format(
++                    sorted(unexpected_missing), sorted(result.unexpected_keys)
++                )
++            )
++        self.recoder.print_log(
++            "Loaded {} tensors from {} (ignored: {}).".format(
++                len(weights), weight_path, list(self.arg.ignore_weights)
++            )
++        )
+ 
+     @staticmethod
+     def modified_weights(state_dict, modified=False):
+@@ -221,7 +245,9 @@ class Processor():
+ 
+     def load_checkpoint_weights(self, model, optimizer):
+         self.load_model_weights(model, self.arg.load_checkpoints)
+-        state_dict = torch.load(self.arg.load_checkpoints)
++        state_dict = torch.load(
++            self.arg.load_checkpoints, map_location="cpu", weights_only=False
++        )
+ 
+         if len(torch.cuda.get_rng_state_all()) == len(state_dict['rng_state']['cuda']):
+             print("Loading random seeds...")
+@@ -247,6 +273,8 @@ class Processor():
+             dataset_list = zip(["train", "dev", "test"], [True, False, False]) 
+         elif self.arg.dataset == 'CSL-Daily':
+             dataset_list = zip(["train", "dev", "test"], [True, False, False])
++        elif self.arg.dataset == 'isharah1000':
++            dataset_list = zip(["train", "dev", "test"], [True, False, False])
+         for idx, (mode, train_flag) in enumerate(dataset_list):
+             arg = self.arg.feeder_args
+             arg["prefix"] = self.arg.dataset_info['dataset_root']
+diff --git a/CorrNet_Plus_CSLR/seq_scripts.py b/CorrNet_Plus_CSLR/seq_scripts.py
+index 9479348..2fef7bb 100644
+--- a/CorrNet_Plus_CSLR/seq_scripts.py
++++ b/CorrNet_Plus_CSLR/seq_scripts.py
+@@ -13,46 +13,90 @@ from torch.cuda.amp import autocast as autocast
+ from torch.cuda.amp import GradScaler
+ import gc
+ 
++try:
++    import wandb
++    HAS_WANDB = True
++except ImportError:
++    HAS_WANDB = False
++
+ def seq_train(loader, model, optimizer, device, epoch_idx, recoder):
+     model.train()
+     loss_value = []
+     clr = [group['lr'] for group in optimizer.optimizer.param_groups]
+-    scaler = GradScaler()
++    amp_dtype_name = os.environ.get("CORRNET_AMP_DTYPE", "fp16").lower()
++    if amp_dtype_name not in ("fp16", "bf16", "fp32"):
++        raise ValueError("CORRNET_AMP_DTYPE must be 'fp16', 'bf16', or 'fp32'")
++    amp_dtype = torch.bfloat16 if amp_dtype_name == "bf16" else torch.float16
++    amp_enabled = amp_dtype_name != "fp32"
++    if amp_dtype == torch.bfloat16 and not torch.cuda.is_bf16_supported():
++        raise RuntimeError("CORRNET_AMP_DTYPE=bf16 requires a BF16-capable CUDA GPU")
++    max_grad_norm = float(os.environ.get("CORRNET_MAX_GRAD_NORM", "0"))
++    scaler = GradScaler(enabled=amp_dtype_name == "fp16")
++    if epoch_idx == 0:
++        recoder.print_log(
++            "\tNumerics: autocast={}  grad_clip={}".format(
++                amp_dtype_name, max_grad_norm if max_grad_norm > 0 else "disabled"
++            )
++        )
+     for batch_idx, data in enumerate(tqdm(loader)):
+         vid = device.data_to_device(data[0])
+         vid_lgt = device.data_to_device(data[1])
+         label = device.data_to_device(data[2])
+         label_lgt = device.data_to_device(data[3])
+-        optimizer.zero_grad()
+-        with autocast():
++        # Clear every live model parameter, including parameters created by
++        # module conversion before optimizer construction.
++        model.zero_grad(set_to_none=True)
++        with autocast(enabled=amp_enabled, dtype=amp_dtype):
+             ret_dict = model(vid, vid_lgt, label=label, label_lgt=label_lgt)
+-            loss, _ = model.criterion_calculation(ret_dict, label, label_lgt)
++            loss, total_loss = model.criterion_calculation(ret_dict, label, label_lgt)
++        loss_components = {k: v.item() if hasattr(v, 'item') else float(v) for k, v in total_loss.items()}
+         if np.isinf(loss.item()) or np.isnan(loss.item()):
+             print('loss is nan')
+-            #print(data[-1])
+             print(str(data[1])+'  frames')
+             print(str(data[3])+'  glosses')
++            print('  components: ' + '  '.join(f'{k}={v:.4f}' for k, v in loss_components.items()))
++            del ret_dict
++            del loss
++            continue
++        if scaler.is_enabled():
++            scaler.scale(loss).backward()
++            scaler.unscale_(optimizer.optimizer)
++        else:
++            loss.backward()
++        if max_grad_norm > 0:
++            grad_norm = nn.utils.clip_grad_norm_(model.parameters(), max_grad_norm).item()
++        else:
++            grad_norm = sum(p.grad.norm().item() ** 2 for p in model.parameters() if p.grad is not None) ** 0.5
++        if not np.isfinite(grad_norm):
++            print('gradient norm is not finite; skipping optimizer step')
++            if scaler.is_enabled():
++                scaler.update()
+             del ret_dict
+             del loss
+             continue
+-        scaler.scale(loss).backward()
+-        scaler.step(optimizer.optimizer)
+-        scaler.update()
+-        # nn.utils.clip_grad_norm_(model.rnn.parameters(), 5)
++        if scaler.is_enabled():
++            scaler.step(optimizer.optimizer)
++            scaler.update()
++        else:
++            optimizer.optimizer.step()
+         loss_value.append(loss.item())
+         if batch_idx % recoder.log_interval == 0:
+             recoder.print_log(
+-                '\tEpoch: {}, Batch({}/{}) done. Loss: {:.8f}  lr:{:.6f}'
+-                    .format(epoch_idx, batch_idx, len(loader), loss.item(), clr[0]))
++                '\tEpoch: {}, Batch({}/{}) done. Loss: {:.4f}  grad_norm: {:.2f}  lr:{:.6f}  [{}]'
++                    .format(epoch_idx, batch_idx, len(loader), loss.item(), grad_norm, clr[0],
++                            '  '.join(f'{k}={v:.3f}' for k, v in loss_components.items())))
+         del ret_dict
+         del loss
+     optimizer.scheduler.step()
+-    recoder.print_log('\tMean training loss: {:.10f}.'.format(np.mean(loss_value)))
++    mean_loss = np.mean(loss_value)
++    recoder.print_log('\tMean training loss: {:.10f}.'.format(mean_loss))
++    if HAS_WANDB and wandb.run is not None:
++        wandb.log({"train/loss": mean_loss, "train/lr": clr[0], "epoch": epoch_idx})
+     del loss_value
+     del clr
+     gc.collect()
+     torch.cuda.empty_cache()
+-    return 
++    return
+ 
+ 
+ def seq_eval(cfg, loader, model, device, mode, epoch, work_dir, recoder,
+@@ -109,6 +153,8 @@ def seq_eval(cfg, loader, model, device, mode, epoch, work_dir, recoder,
+     del label_lgt
+     gc.collect()
+     recoder.print_log(f"Epoch {epoch}, {mode} {lstm_ret: 2.2f}%", f"{work_dir}/{mode}.txt")
++    if HAS_WANDB and wandb.run is not None:
++        wandb.log({f"{mode}/wer": lstm_ret, "epoch": epoch})
+     return lstm_ret
+ 
+ 
+diff --git a/CorrNet_Plus_CSLR/slr_network.py b/CorrNet_Plus_CSLR/slr_network.py
+index fb3a56f..8d17cfd 100644
+--- a/CorrNet_Plus_CSLR/slr_network.py
++++ b/CorrNet_Plus_CSLR/slr_network.py
+@@ -51,7 +51,7 @@ class SLRModel(nn.Module):
+                                    conv_type=conv_type,
+                                    use_bn=use_bn,
+                                    num_classes=num_classes)
+-        self.decoder = utils.Decode(gloss_dict, num_classes, 'beam')
++        self.decoder = utils.Decode(gloss_dict, num_classes, 'max')
+         self.temporal_model = BiLSTMLayer(rnn_type='LSTM', input_size=hidden_size, hidden_size=hidden_size,
+                                           num_layers=2, bidirectional=True)
+         if weight_norm:
+diff --git a/CorrNet_Plus_CSLR/utils/decode.py b/CorrNet_Plus_CSLR/utils/decode.py
+index f0c27d9..1fafa3d 100644
+--- a/CorrNet_Plus_CSLR/utils/decode.py
++++ b/CorrNet_Plus_CSLR/utils/decode.py
+@@ -2,7 +2,6 @@ import os
+ import pdb
+ import time
+ import torch
+-import ctcdecode
+ import numpy as np
+ from itertools import groupby
+ import torch.nn.functional as F
+@@ -15,9 +14,12 @@ class Decode(object):
+         self.num_classes = num_classes
+         self.search_mode = search_mode
+         self.blank_id = blank_id
+-        vocab = [chr(x) for x in range(20000, 20000 + num_classes)]
+-        self.ctc_decoder = ctcdecode.CTCBeamDecoder(vocab, beam_width=10, blank_id=blank_id,
+-                                                    num_processes=10)
++        self.ctc_decoder = None
++        if search_mode == "beam":
++            import ctcdecode
++            vocab = [chr(x) for x in range(20000, 20000 + num_classes)]
++            self.ctc_decoder = ctcdecode.CTCBeamDecoder(vocab, beam_width=10, blank_id=blank_id,
++                                                        num_processes=10)
+ 
+     def decode(self, nn_output, vid_lgt, batch_first=True, probs=False):
+         if not batch_first:
+diff --git a/CorrNet_Plus_CSLR/utils/video_augmentation.py b/CorrNet_Plus_CSLR/utils/video_augmentation.py
+index a22302f..2e81f47 100644
+--- a/CorrNet_Plus_CSLR/utils/video_augmentation.py
++++ b/CorrNet_Plus_CSLR/utils/video_augmentation.py
+@@ -220,9 +220,13 @@ class RandomRotation(object):
+ 
+ 
+ class TemporalRescale(object):
+-    def __init__(self, temp_scaling=0.2, frame_interval=1):
++    def __init__(self, temp_scaling=0.2, frame_interval=1, max_len=None):
+         self.min_len = 32
+-        self.max_len = int(np.ceil(230/frame_interval))
++        self.max_len = (
++            int(max_len)
++            if max_len is not None
++            else int(np.ceil(230 / frame_interval))
++        )
+         self.L = 1.0 - temp_scaling
+         self.U = 1.0 + temp_scaling
+ 
+

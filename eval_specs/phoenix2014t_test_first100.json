@@ -1,0 +1,1012 @@
+{
+  "protocol": "phoenix2014t-test-first100-v1",
+  "split": "test",
+  "selection": "first entries in the shared Phoenix2014T test metadata",
+  "source_metadata": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/test_meta.json",
+  "source_metadata_sha256": "5da811b94f6158de82167b3992a8b119741c899de695234fc6a27a356bc180f2",
+  "recognition_info": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/CORRNET/CorrNet_Plus_CSLR/preprocess/phoenix2014-T/test_info.npy",
+  "recognition_info_sha256": "42975a341f4bd07b708ad1d46b6992e3a739be5f1d1ad9a93bdd03722ba33d08",
+  "num_samples": 100,
+  "samples": [
+    {
+      "rank": 0,
+      "id": "25October_2010_Monday_tagesschau-17",
+      "video": "25October_2010_Monday_tagesschau-17.mp4",
+      "text": "regen und schnee lassen an den alpen in der nacht nach im norden und nordosten fallen hier und da schauer sonst ist das klar",
+      "prompt_text": "regen und schnee lassen an den alpen in der nacht nach im norden und nordosten fallen hier und da schauer sonst ist das klar",
+      "reference_gloss": "REGEN SCHNEE REGION VERSCHWINDEN NORD REGEN KOENNEN REGION STERN KOENNEN SEHEN",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/25October_2010_Monday_tagesschau-17.mp4",
+      "generation_seed": 42
+    },
+    {
+      "rank": 1,
+      "id": "25October_2010_Monday_tagesschau-24",
+      "video": "25October_2010_Monday_tagesschau-24.mp4",
+      "text": "am donnerstag regen in der nordhälfte in der südhälfte mal sonne mal wolken ähnliches wetter dann auch am freitag",
+      "prompt_text": "am donnerstag regen in der nordhälfte in der südhälfte mal sonne mal wolken ähnliches wetter dann auch am freitag",
+      "reference_gloss": "DONNERSTAG NORDWEST REGEN REGION SONNE WOLKE WECHSELHAFT DANN FREITAG AEHNLICH WETTER",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/25October_2010_Monday_tagesschau-24.mp4",
+      "generation_seed": 43
+    },
+    {
+      "rank": 2,
+      "id": "15December_2010_Wednesday_tagesschau-37",
+      "video": "15December_2010_Wednesday_tagesschau-37.mp4",
+      "text": "vom nordmeer zieht ein kräftiges tief heran und bringt uns ab den morgenstunden heftige schneefälle zum teil auch gefrierenden regen",
+      "prompt_text": "vom nordmeer zieht ein kräftiges tief heran und bringt uns ab den morgenstunden heftige schneefälle zum teil auch gefrierenden regen",
+      "reference_gloss": "KRAEFTIG AB MORGEN FRUEH MEISTENS SCHNEE SCHNEIEN KALT REGEN",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/15December_2010_Wednesday_tagesschau-37.mp4",
+      "generation_seed": 44
+    },
+    {
+      "rank": 3,
+      "id": "10March_2011_Thursday_heute-58",
+      "video": "10March_2011_Thursday_heute-58.mp4",
+      "text": "sonnig geht es auch ins wochenende samstag ein herrlicher tag mit temperaturen bis siebzehn grad hier im westen",
+      "prompt_text": "sonnig geht es auch ins wochenende samstag ein herrlicher tag mit temperaturen bis siebzehn grad hier im westen",
+      "reference_gloss": "WOCHENENDE SONNE SAMSTAG SCHOEN TEMPERATUR BIS SIEBZEHN GRAD REGION",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/10March_2011_Thursday_heute-58.mp4",
+      "generation_seed": 45
+    },
+    {
+      "rank": 4,
+      "id": "14August_2009_Friday_tagesschau-62",
+      "video": "14August_2009_Friday_tagesschau-62.mp4",
+      "text": "deutschland liegt morgen unter hochdruckeinfluss der die wolken weitgehend vertreibt",
+      "prompt_text": "deutschland liegt morgen unter hochdruckeinfluss der die wolken weitgehend vertreibt",
+      "reference_gloss": "DEUTSCH LAND MORGEN HOCH DRUCK KOMMEN WOLKE AUFLOESEN",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/14August_2009_Friday_tagesschau-62.mp4",
+      "generation_seed": 46
+    },
+    {
+      "rank": 5,
+      "id": "14August_2009_Friday_tagesschau-73",
+      "video": "14August_2009_Friday_tagesschau-73.mp4",
+      "text": "am sonntag im nordwesten eine mischung aus sonne und wolken mit einigen zum teil gewittrigen schauern",
+      "prompt_text": "am sonntag im nordwesten eine mischung aus sonne und wolken mit einigen zum teil gewittrigen schauern",
+      "reference_gloss": "SONNTAG NAECHSTE NORDWEST WOLKE SONNE WOLKE GEWITTER REGEN DABEI",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/14August_2009_Friday_tagesschau-73.mp4",
+      "generation_seed": 47
+    },
+    {
+      "rank": 6,
+      "id": "14August_2009_Friday_tagesschau-75",
+      "video": "14August_2009_Friday_tagesschau-75.mp4",
+      "text": "örtlich schauer oder gewitter die heftig sein können",
+      "prompt_text": "örtlich schauer oder gewitter die heftig sein können",
+      "reference_gloss": "WAHRSCHEINLICH SCHAUER GEWITTER STARK",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/14August_2009_Friday_tagesschau-75.mp4",
+      "generation_seed": 48
+    },
+    {
+      "rank": 7,
+      "id": "26January_2010_Tuesday_heute-105",
+      "video": "26January_2010_Tuesday_heute-105.mp4",
+      "text": "in den nächsten tagen geht es auf jeden fall winterlich weiter immer wieder mal mit etwas schnee",
+      "prompt_text": "in den nächsten tagen geht es auf jeden fall winterlich weiter immer wieder mal mit etwas schnee",
+      "reference_gloss": "IM-VERLAUF BLEIBEN KALT ENORM SCHNEE KOENNEN",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/26January_2010_Tuesday_heute-105.mp4",
+      "generation_seed": 49
+    },
+    {
+      "rank": 8,
+      "id": "26January_2010_Tuesday_heute-106",
+      "video": "26January_2010_Tuesday_heute-106.mp4",
+      "text": "und zum wochenende wird es dann sogar wieder ein bisschen kälter",
+      "prompt_text": "und zum wochenende wird es dann sogar wieder ein bisschen kälter",
+      "reference_gloss": "WOCHENENDE IX MEHR KALT",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/26January_2010_Tuesday_heute-106.mp4",
+      "generation_seed": 50
+    },
+    {
+      "rank": 9,
+      "id": "01November_2010_Monday_tagesschau-133",
+      "video": "01November_2010_Monday_tagesschau-133.mp4",
+      "text": "auch morgen erwartet uns eine ruhige herbstmischung aus hochnebel wolken und sonne",
+      "prompt_text": "auch morgen erwartet uns eine ruhige herbstmischung aus hochnebel wolken und sonne",
+      "reference_gloss": "MORGEN DANN HERBST MISCHUNG HOCH NEBEL WOLKE SONNE",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/01November_2010_Monday_tagesschau-133.mp4",
+      "generation_seed": 51
+    },
+    {
+      "rank": 10,
+      "id": "01November_2010_Monday_tagesschau-136",
+      "video": "01November_2010_Monday_tagesschau-136.mp4",
+      "text": "später breiten sich aber nebel oder hochnebelfelder aus",
+      "prompt_text": "später breiten sich aber nebel oder hochnebelfelder aus",
+      "reference_gloss": "ABER IM-VERLAUF NEBEL HOCH NEBEL IX",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/01November_2010_Monday_tagesschau-136.mp4",
+      "generation_seed": 52
+    },
+    {
+      "rank": 11,
+      "id": "01November_2010_Monday_tagesschau-137",
+      "video": "01November_2010_Monday_tagesschau-137.mp4",
+      "text": "die halten sich morgen recht zäh",
+      "prompt_text": "die halten sich morgen recht zäh",
+      "reference_gloss": "MORGEN LANG BLEIBEN",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/01November_2010_Monday_tagesschau-137.mp4",
+      "generation_seed": 53
+    },
+    {
+      "rank": 12,
+      "id": "08May_2010_Saturday_tagesschau-175",
+      "video": "08May_2010_Saturday_tagesschau-175.mp4",
+      "text": "in deutschland gibt es nur schwache luftdruckunterschiede",
+      "prompt_text": "in deutschland gibt es nur schwache luftdruckunterschiede",
+      "reference_gloss": "DEUTSCH LAND SCHWACH DRUCK UNTERSCHIED",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/08May_2010_Saturday_tagesschau-175.mp4",
+      "generation_seed": 54
+    },
+    {
+      "rank": 13,
+      "id": "08May_2010_Saturday_tagesschau-176",
+      "video": "08May_2010_Saturday_tagesschau-176.mp4",
+      "text": "vom mittelmeer fließt feuchte luft heran in der sich zum teil kräftige gewitter entwickeln können",
+      "prompt_text": "vom mittelmeer fließt feuchte luft heran in der sich zum teil kräftige gewitter entwickeln können",
+      "reference_gloss": "REGION FEUCHT REGION IX GEWITTER REGION",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/08May_2010_Saturday_tagesschau-176.mp4",
+      "generation_seed": 55
+    },
+    {
+      "rank": 14,
+      "id": "24November_2011_Thursday_heute-224",
+      "video": "24November_2011_Thursday_heute-224.mp4",
+      "text": "ganz ähnliche temperaturen wie heute zwischen sechs und elf grad",
+      "prompt_text": "ganz ähnliche temperaturen wie heute zwischen sechs und elf grad",
+      "reference_gloss": "AEHNLICH WIE HEUTE SECHS ZWISCHEN ELF GRAD",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/24November_2011_Thursday_heute-224.mp4",
+      "generation_seed": 56
+    },
+    {
+      "rank": 15,
+      "id": "21August_2011_Sunday_tagesschau-263",
+      "video": "21August_2011_Sunday_tagesschau-263.mp4",
+      "text": "in der nordhälfte gibt es zu beginn der nacht noch einzelne heftige schauer und gewitter dann klar dass dort teilweise auf",
+      "prompt_text": "in der nordhälfte gibt es zu beginn der nacht noch einzelne heftige schauer und gewitter dann klar dass dort teilweise auf",
+      "reference_gloss": "NORD NACHT ANFANG ENORM SCHAUER GEWITTER DANN WOLKE VERSCHWINDEN",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/21August_2011_Sunday_tagesschau-263.mp4",
+      "generation_seed": 57
+    },
+    {
+      "rank": 16,
+      "id": "22November_2010_Monday_heute-283",
+      "video": "22November_2010_Monday_heute-283.mp4",
+      "text": "und bis zum abend kann die schneefallgrenze auch bis in die niederungen sinken",
+      "prompt_text": "und bis zum abend kann die schneefallgrenze auch bis in die niederungen sinken",
+      "reference_gloss": "BIS ABEND IN-KOMMEND DANN KOMMEN NIEDERUNG",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/22November_2010_Monday_heute-283.mp4",
+      "generation_seed": 58
+    },
+    {
+      "rank": 17,
+      "id": "14October_2010_Thursday_tagesschau-287",
+      "video": "14October_2010_Thursday_tagesschau-287.mp4",
+      "text": "und nun die wettervorhersage für morgen freitag den fünfzehnten oktober",
+      "prompt_text": "und nun die wettervorhersage für morgen freitag den fünfzehnten oktober",
+      "reference_gloss": "JETZT WETTER VORAUSSAGE FUER MORGEN FREITAG FUENFZEHN OKTOBER",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/14October_2010_Thursday_tagesschau-287.mp4",
+      "generation_seed": 59
+    },
+    {
+      "rank": 18,
+      "id": "14October_2010_Thursday_tagesschau-290",
+      "video": "14October_2010_Thursday_tagesschau-290.mp4",
+      "text": "morgen früh bildet sich über der nordsee ein neues tief das von norden für kräftigen regen sorgt",
+      "prompt_text": "morgen früh bildet sich über der nordsee ein neues tief das von norden für kräftigen regen sorgt",
+      "reference_gloss": "NORD SEE MEHR WOLKE NORD MEISTENS REGEN",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/14October_2010_Thursday_tagesschau-290.mp4",
+      "generation_seed": 60
+    },
+    {
+      "rank": 19,
+      "id": "14October_2010_Thursday_tagesschau-291",
+      "video": "14October_2010_Thursday_tagesschau-291.mp4",
+      "text": "heute nacht ist es im süden teils klar teilweise aber auch nebel",
+      "prompt_text": "heute nacht ist es im süden teils klar teilweise aber auch nebel",
+      "reference_gloss": "HEUTE ABEND SUED BISSCHEN KLAR HIMMEL BISSCHEN NEBEL AUCH DABEI",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/14October_2010_Thursday_tagesschau-291.mp4",
+      "generation_seed": 61
+    },
+    {
+      "rank": 20,
+      "id": "14October_2010_Thursday_tagesschau-294",
+      "video": "14October_2010_Thursday_tagesschau-294.mp4",
+      "text": "im verlauf kommt im norden und nordwesten teilweise kräftiger regen auf einzelne gewitter sind dabei",
+      "prompt_text": "im verlauf kommt im norden und nordwesten teilweise kräftiger regen auf einzelne gewitter sind dabei",
+      "reference_gloss": "NORD NORDWEST MEISTENS REGEN AUCH MOEGLICH BISSCHEN GEWITTER",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/14October_2010_Thursday_tagesschau-294.mp4",
+      "generation_seed": 62
+    },
+    {
+      "rank": 21,
+      "id": "06April_2010_Tuesday_tagesschau-306",
+      "video": "06April_2010_Tuesday_tagesschau-306.mp4",
+      "text": "morgen scheint dann wieder überall die sonne",
+      "prompt_text": "morgen scheint dann wieder überall die sonne",
+      "reference_gloss": "MORGEN UEBERWIEGEND SONNE",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/06April_2010_Tuesday_tagesschau-306.mp4",
+      "generation_seed": 63
+    },
+    {
+      "rank": 22,
+      "id": "12May_2010_Wednesday_tagesschau-323",
+      "video": "12May_2010_Wednesday_tagesschau-323.mp4",
+      "text": "am samstag regnet es im südosten und an der ostsee dort ist es teilweise windig sonst regnet es nur vereinzelt teilweise zeigt sich die sonne",
+      "prompt_text": "am samstag regnet es im südosten und an der ostsee dort ist es teilweise windig sonst regnet es nur vereinzelt teilweise zeigt sich die sonne",
+      "reference_gloss": "SAMSTAG SUEDOST REGEN NORD DANN WIND STARK SONST REGEN IX TEILWEISE AUCH SONNE DABEI",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/12May_2010_Wednesday_tagesschau-323.mp4",
+      "generation_seed": 64
+    },
+    {
+      "rank": 23,
+      "id": "12April_2010_Monday_tagesschau-365",
+      "video": "12April_2010_Monday_tagesschau-365.mp4",
+      "text": "am donnerstag ist es in der südosthälfte weiterhin wechselhaft nach nordwesten hin ist es freundlich",
+      "prompt_text": "am donnerstag ist es in der südosthälfte weiterhin wechselhaft nach nordwesten hin ist es freundlich",
+      "reference_gloss": "DONNERSTAG SUEDOST WEITER WECHSELHAFT NORDWEST MEHR FREUNDLICH SONNE",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/12April_2010_Monday_tagesschau-365.mp4",
+      "generation_seed": 65
+    },
+    {
+      "rank": 24,
+      "id": "12July_2010_Monday_tagesschau-373",
+      "video": "12July_2010_Monday_tagesschau-373.mp4",
+      "text": "im westen und nordwesten beruhigt sich das wetter später wieder",
+      "prompt_text": "im westen und nordwesten beruhigt sich das wetter später wieder",
+      "reference_gloss": "WEST NORDWEST VERSCHWINDEN",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/12July_2010_Monday_tagesschau-373.mp4",
+      "generation_seed": 66
+    },
+    {
+      "rank": 25,
+      "id": "12July_2010_Monday_tagesschau-374",
+      "video": "12July_2010_Monday_tagesschau-374.mp4",
+      "text": "morgen gibt es im osten und südosten bei einer mischung aus sonne und wolken zum teil kräftige schauer oder gewitter",
+      "prompt_text": "morgen gibt es im osten und südosten bei einer mischung aus sonne und wolken zum teil kräftige schauer oder gewitter",
+      "reference_gloss": "MORGEN OST SUEDOST MISCHUNG SONNE WOLKE TEILWEISE REGEN GEWITTER",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/12July_2010_Monday_tagesschau-374.mp4",
+      "generation_seed": 67
+    },
+    {
+      "rank": 26,
+      "id": "17February_2011_Thursday_heute-387",
+      "video": "17February_2011_Thursday_heute-387.mp4",
+      "text": "temperaturen nur so um die null grad am kältesten im norden bis minus fünf grad",
+      "prompt_text": "temperaturen nur so um die null grad am kältesten im norden bis minus fünf grad",
+      "reference_gloss": "TEMPERATUR NULL GRAD KALT NORD MINUS FUENF GRAD",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/17February_2011_Thursday_heute-387.mp4",
+      "generation_seed": 68
+    },
+    {
+      "rank": 27,
+      "id": "17April_2010_Saturday_tagesschau-399",
+      "video": "17April_2010_Saturday_tagesschau-399.mp4",
+      "text": "die luft die in der kommenden woche zu uns strömt ist deutlich kühler",
+      "prompt_text": "die luft die in der kommenden woche zu uns strömt ist deutlich kühler",
+      "reference_gloss": "NAECHSTE WOCHE LUFT KOMMEN MEHR KUEHL",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/17April_2010_Saturday_tagesschau-399.mp4",
+      "generation_seed": 69
+    },
+    {
+      "rank": 28,
+      "id": "17April_2010_Saturday_tagesschau-406",
+      "video": "17April_2010_Saturday_tagesschau-406.mp4",
+      "text": "am dienstag ist es teils freundlich teils stärker bewölkt einige regenschauer sind dabei mitunter auch gewitter",
+      "prompt_text": "am dienstag ist es teils freundlich teils stärker bewölkt einige regenschauer sind dabei mitunter auch gewitter",
+      "reference_gloss": "DIENSTAG HAUPTSAECHLICH SONNE ABER WOLKE AUCH HABEN2 WECHSELHAFT MOEGLICH REGEN ODER GEWITTER",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/17April_2010_Saturday_tagesschau-406.mp4",
+      "generation_seed": 70
+    },
+    {
+      "rank": 29,
+      "id": "01October_2009_Thursday_tagesschau-420",
+      "video": "01October_2009_Thursday_tagesschau-420.mp4",
+      "text": "am sonntag im norden und in der mitte schauer dabei ist es im norden stürmisch",
+      "prompt_text": "am sonntag im norden und in der mitte schauer dabei ist es im norden stürmisch",
+      "reference_gloss": "SONNTAG NORD MITTE REGION REGEN NORD STURM",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/01October_2009_Thursday_tagesschau-420.mp4",
+      "generation_seed": 71
+    },
+    {
+      "rank": 30,
+      "id": "01October_2009_Thursday_tagesschau-421",
+      "video": "01October_2009_Thursday_tagesschau-421.mp4",
+      "text": "im süden freundliches wetter",
+      "prompt_text": "im süden freundliches wetter",
+      "reference_gloss": "SUED REGION BESSER",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/01October_2009_Thursday_tagesschau-421.mp4",
+      "generation_seed": 72
+    },
+    {
+      "rank": 31,
+      "id": "04May_2010_Tuesday_heute-460",
+      "video": "04May_2010_Tuesday_heute-460.mp4",
+      "text": "der donnerstag wird dann richtig krass da erwarten wir unwetter in deutschland und große temperaturunterschiede sechs bis zwanzig grad",
+      "prompt_text": "der donnerstag wird dann richtig krass da erwarten wir unwetter in deutschland und große temperaturunterschiede sechs bis zwanzig grad",
+      "reference_gloss": "DONNERSTAG EXTREM WETTER REGION TEMPERATUR UNTERSCHIED SECHS BIS ZWANZIG GRAD",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/04May_2010_Tuesday_heute-460.mp4",
+      "generation_seed": 73
+    },
+    {
+      "rank": 32,
+      "id": "30January_2013_Wednesday_tagesschau-476",
+      "video": "30January_2013_Wednesday_tagesschau-476.mp4",
+      "text": "auch am samstag regnet oder schneit es verbreitet später wird es im westen und norden freundlicher",
+      "prompt_text": "auch am samstag regnet oder schneit es verbreitet später wird es im westen und norden freundlicher",
+      "reference_gloss": "AUCH SAMSTAG REGEN SCHNEE SCHNEIEN IM-VERLAUF WEST NORDWEST MEHR FREUNDLICH",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/30January_2013_Wednesday_tagesschau-476.mp4",
+      "generation_seed": 74
+    },
+    {
+      "rank": 33,
+      "id": "07February_2010_Sunday_tagesschau-499",
+      "video": "07February_2010_Sunday_tagesschau-499.mp4",
+      "text": "im südwesten morgen werte um den gefrierpunkt im osten bis minus sieben grad",
+      "prompt_text": "im südwesten morgen werte um den gefrierpunkt im osten bis minus sieben grad",
+      "reference_gloss": "SUEDWEST NULL OST MINUS SIEBEN MOEGLICH",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/07February_2010_Sunday_tagesschau-499.mp4",
+      "generation_seed": 75
+    },
+    {
+      "rank": 34,
+      "id": "20October_2011_Thursday_tagesschau-506",
+      "video": "20October_2011_Thursday_tagesschau-506.mp4",
+      "text": "in der südhälfte muss dazu mit nachtfrost gerechnet werden",
+      "prompt_text": "in der südhälfte muss dazu mit nachtfrost gerechnet werden",
+      "reference_gloss": "SUED REGION KOENNEN NACHT FROST BODEN",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/20October_2011_Thursday_tagesschau-506.mp4",
+      "generation_seed": 76
+    },
+    {
+      "rank": 35,
+      "id": "20October_2011_Thursday_tagesschau-513",
+      "video": "20October_2011_Thursday_tagesschau-513.mp4",
+      "text": "am tag sechs grad an den alpen und dreizehn grad am oberrhein",
+      "prompt_text": "am tag sechs grad an den alpen und dreizehn grad am oberrhein",
+      "reference_gloss": "TAG BERG SECHS GRAD IX REGION DREIZEHN GRAD REGION",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/20October_2011_Thursday_tagesschau-513.mp4",
+      "generation_seed": 77
+    },
+    {
+      "rank": 36,
+      "id": "14October_2009_Wednesday_tagesschau-516",
+      "video": "14October_2009_Wednesday_tagesschau-516.mp4",
+      "text": "und nun die wettervorhersage für morgen donnerstag den fünfzehnten oktober",
+      "prompt_text": "und nun die wettervorhersage für morgen donnerstag den fünfzehnten oktober",
+      "reference_gloss": "JETZT MORGEN WETTER WIE-AUSSEHEN MORGEN FUENFZEHN OKTOBER",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/14October_2009_Wednesday_tagesschau-516.mp4",
+      "generation_seed": 78
+    },
+    {
+      "rank": 37,
+      "id": "14October_2009_Wednesday_tagesschau-526",
+      "video": "14October_2009_Wednesday_tagesschau-526.mp4",
+      "text": "heute nacht plus vier grad an der ostsee bis minus vier grad in den mittelgebirgen",
+      "prompt_text": "heute nacht plus vier grad an der ostsee bis minus vier grad in den mittelgebirgen",
+      "reference_gloss": "HEUTE NACHT PLUS VIER OST MINUS VIER REGION",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/14October_2009_Wednesday_tagesschau-526.mp4",
+      "generation_seed": 79
+    },
+    {
+      "rank": 38,
+      "id": "12October_2009_Monday_tagesschau-548",
+      "video": "12October_2009_Monday_tagesschau-548.mp4",
+      "text": "und nun die wettervorhersage für morgen dienstag den dreizehnten oktober",
+      "prompt_text": "und nun die wettervorhersage für morgen dienstag den dreizehnten oktober",
+      "reference_gloss": "JETZT MORGEN WETTER WIE-AUSSEHEN DREIZEHN OKTOBER",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/12October_2009_Monday_tagesschau-548.mp4",
+      "generation_seed": 80
+    },
+    {
+      "rank": 39,
+      "id": "12October_2009_Monday_tagesschau-560",
+      "video": "12October_2009_Monday_tagesschau-560.mp4",
+      "text": "im westen ist es freundlich",
+      "prompt_text": "im westen ist es freundlich",
+      "reference_gloss": "WEST FREUNDLICH",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/12October_2009_Monday_tagesschau-560.mp4",
+      "generation_seed": 81
+    },
+    {
+      "rank": 40,
+      "id": "12October_2009_Monday_tagesschau-561",
+      "video": "12October_2009_Monday_tagesschau-561.mp4",
+      "text": "ähnliches wetter dann auch am donnerstag",
+      "prompt_text": "ähnliches wetter dann auch am donnerstag",
+      "reference_gloss": "AUCH DONNERSTAG",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/12October_2009_Monday_tagesschau-561.mp4",
+      "generation_seed": 82
+    },
+    {
+      "rank": 41,
+      "id": "12October_2009_Monday_tagesschau-562",
+      "video": "12October_2009_Monday_tagesschau-562.mp4",
+      "text": "am freitag insgesamt viele wolken die regen bringen",
+      "prompt_text": "am freitag insgesamt viele wolken die regen bringen",
+      "reference_gloss": "FREITAG VIEL WOLKE BEWOELKT",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/12October_2009_Monday_tagesschau-562.mp4",
+      "generation_seed": 83
+    },
+    {
+      "rank": 42,
+      "id": "12October_2009_Monday_tagesschau-563",
+      "video": "12October_2009_Monday_tagesschau-563.mp4",
+      "text": "im osten und südosten auch schnee oder schneeregen",
+      "prompt_text": "im osten und südosten auch schnee oder schneeregen",
+      "reference_gloss": "SUEDOST SCHNEE KOENNEN",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/12October_2009_Monday_tagesschau-563.mp4",
+      "generation_seed": 84
+    },
+    {
+      "rank": 43,
+      "id": "25February_2011_Friday_tagesschau-568",
+      "video": "25February_2011_Friday_tagesschau-568.mp4",
+      "text": "am tag im osten viel sonne in der westhälfte regnet es zwischen niederrhein und ostfriesland",
+      "prompt_text": "am tag im osten viel sonne in der westhälfte regnet es zwischen niederrhein und ostfriesland",
+      "reference_gloss": "TAG OST VIEL SONNE WEST REGEN FLUSS REGION",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/25February_2011_Friday_tagesschau-568.mp4",
+      "generation_seed": 85
+    },
+    {
+      "rank": 44,
+      "id": "09July_2010_Friday_tagesschau-591",
+      "video": "09July_2010_Friday_tagesschau-591.mp4",
+      "text": "zunächst ist das gewitterrisiko nur im westen erhöht von tag zu tag steigt es aber auch richtung osten",
+      "prompt_text": "zunächst ist das gewitterrisiko nur im westen erhöht von tag zu tag steigt es aber auch richtung osten",
+      "reference_gloss": "ZUERST GEWITTER NUR WEST RISIKO JEDEN-TAG OST MEHR OST KOENNEN GEWITTER WEST",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/09July_2010_Friday_tagesschau-591.mp4",
+      "generation_seed": 86
+    },
+    {
+      "rank": 45,
+      "id": "06October_2010_Wednesday_tagesschau-638",
+      "video": "06October_2010_Wednesday_tagesschau-638.mp4",
+      "text": "morgen vormittag an der ostsee noch starke böen sonst weht der wind schwach bis mäßig aus ost bis südost",
+      "prompt_text": "morgen vormittag an der ostsee noch starke böen sonst weht der wind schwach bis mäßig aus ost bis südost",
+      "reference_gloss": "MORGEN VOR MITTAG NORD STARK WIND WEHEN SCHWACH",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/06October_2010_Wednesday_tagesschau-638.mp4",
+      "generation_seed": 87
+    },
+    {
+      "rank": 46,
+      "id": "14December_2010_Tuesday_heute-650",
+      "video": "14December_2010_Tuesday_heute-650.mp4",
+      "text": "dort auch bei leichten plusgraden aber sonst bleibt es frostig",
+      "prompt_text": "dort auch bei leichten plusgraden aber sonst bleibt es frostig",
+      "reference_gloss": "OBWOHL PLUS SONST REGION FROST",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/14December_2010_Tuesday_heute-650.mp4",
+      "generation_seed": 88
+    },
+    {
+      "rank": 47,
+      "id": "14December_2010_Tuesday_heute-651",
+      "video": "14December_2010_Tuesday_heute-651.mp4",
+      "text": "und die kälteste ecke wird der gesamte südosten bleiben",
+      "prompt_text": "und die kälteste ecke wird der gesamte südosten bleiben",
+      "reference_gloss": "BESONDERS KALT SUED SUEDOST",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/14December_2010_Tuesday_heute-651.mp4",
+      "generation_seed": 89
+    },
+    {
+      "rank": 48,
+      "id": "11July_2009_Saturday_tagesschau-655",
+      "video": "11July_2009_Saturday_tagesschau-655.mp4",
+      "text": "und nun die wettervorhersage für morgen sonntag den zwölften juli",
+      "prompt_text": "und nun die wettervorhersage für morgen sonntag den zwölften juli",
+      "reference_gloss": "MORGEN WETTER WIE-AUSSEHEN SONNTAG ZWOELF JULI",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/11July_2009_Saturday_tagesschau-655.mp4",
+      "generation_seed": 90
+    },
+    {
+      "rank": 49,
+      "id": "11July_2009_Saturday_tagesschau-664",
+      "video": "11July_2009_Saturday_tagesschau-664.mp4",
+      "text": "in der nacht sinken die temperaturen auf vierzehn bis sieben grad",
+      "prompt_text": "in der nacht sinken die temperaturen auf vierzehn bis sieben grad",
+      "reference_gloss": "HEUTE NACHT SINKEN VIERZEHN BIS SIEBEN GRAD",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/11July_2009_Saturday_tagesschau-664.mp4",
+      "generation_seed": 91
+    },
+    {
+      "rank": 50,
+      "id": "11July_2009_Saturday_tagesschau-665",
+      "video": "11July_2009_Saturday_tagesschau-665.mp4",
+      "text": "morgen höchstwerte zwischen siebzehn grad im emsland und fünfundzwanzig grad am oberrhein",
+      "prompt_text": "morgen höchstwerte zwischen siebzehn grad im emsland und fünfundzwanzig grad am oberrhein",
+      "reference_gloss": "MORGEN KOENNEN SIEBZEHN REGION FUENF ZWANZIG REGION",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/11July_2009_Saturday_tagesschau-665.mp4",
+      "generation_seed": 92
+    },
+    {
+      "rank": 51,
+      "id": "11July_2009_Saturday_tagesschau-667",
+      "video": "11July_2009_Saturday_tagesschau-667.mp4",
+      "text": "auch am dienstag und mittwoch mal sonne mal wolken dazu schauer in der südosthälfte teils schwere gewitter",
+      "prompt_text": "auch am dienstag und mittwoch mal sonne mal wolken dazu schauer in der südosthälfte teils schwere gewitter",
+      "reference_gloss": "DIENSTAG MITTWOCH SONNE WOLKE WECHSELHAFT SCHAUER TYPISCH REGION REGEN GEWITTER KOENNEN",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/11July_2009_Saturday_tagesschau-667.mp4",
+      "generation_seed": 93
+    },
+    {
+      "rank": 52,
+      "id": "31January_2011_Monday_tagesschau-668",
+      "video": "31January_2011_Monday_tagesschau-668.mp4",
+      "text": "und nun die wettervorhersage für morgen dienstag den ersten februar",
+      "prompt_text": "und nun die wettervorhersage für morgen dienstag den ersten februar",
+      "reference_gloss": "JETZT WETTER VORAUS INFORMIEREN MORGEN DIENSTAG ERSTE FEBRUAR",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/31January_2011_Monday_tagesschau-668.mp4",
+      "generation_seed": 94
+    },
+    {
+      "rank": 53,
+      "id": "04August_2011_Thursday_tagesschau-712",
+      "video": "04August_2011_Thursday_tagesschau-712.mp4",
+      "text": "der tag beginnt ganz im osten noch freundlich später zeigt sich dann auch im nordwesten häufiger die sonne sonst überwiegen die wolken",
+      "prompt_text": "der tag beginnt ganz im osten noch freundlich später zeigt sich dann auch im nordwesten häufiger die sonne sonst überwiegen die wolken",
+      "reference_gloss": "OST REGION ANFANG FREUNDLICH SPAETER NORDWEST AUCH SONNE SONST REGION WOLKE",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/04August_2011_Thursday_tagesschau-712.mp4",
+      "generation_seed": 95
+    },
+    {
+      "rank": 54,
+      "id": "04August_2011_Thursday_tagesschau-713",
+      "video": "04August_2011_Thursday_tagesschau-713.mp4",
+      "text": "vielerorts gibt es schauer und gewitter die heftig ausfallen können",
+      "prompt_text": "vielerorts gibt es schauer und gewitter die heftig ausfallen können",
+      "reference_gloss": "SCHAUER GEWITTER STARK KUEHL",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/04August_2011_Thursday_tagesschau-713.mp4",
+      "generation_seed": 96
+    },
+    {
+      "rank": 55,
+      "id": "26June_2010_Saturday_tagesschau-724",
+      "video": "26June_2010_Saturday_tagesschau-724.mp4",
+      "text": "vor allem über dem bergland können sich im tagesverlauf stellenweise quellwolken bilden und im südwesten muss mit vereinzelten hitzegewittern gerechnet werden",
+      "prompt_text": "vor allem über dem bergland können sich im tagesverlauf stellenweise quellwolken bilden und im südwesten muss mit vereinzelten hitzegewittern gerechnet werden",
+      "reference_gloss": "REGION TAGSUEBER DANN WOLKE DANN SUEDWEST GEWITTER KOENNEN",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/26June_2010_Saturday_tagesschau-724.mp4",
+      "generation_seed": 97
+    },
+    {
+      "rank": 56,
+      "id": "26June_2010_Saturday_tagesschau-725",
+      "video": "26June_2010_Saturday_tagesschau-725.mp4",
+      "text": "meist weht der wind schwach aus westlichen richtungen",
+      "prompt_text": "meist weht der wind schwach aus westlichen richtungen",
+      "reference_gloss": "WIND SCHWACH",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/26June_2010_Saturday_tagesschau-725.mp4",
+      "generation_seed": 98
+    },
+    {
+      "rank": 57,
+      "id": "19April_2010_Monday_heute-782",
+      "video": "19April_2010_Monday_heute-782.mp4",
+      "text": "jetzt wünsche ich ihnen noch einen schönen abend",
+      "prompt_text": "jetzt wünsche ich ihnen noch einen schönen abend",
+      "reference_gloss": "GUT SCHOEN ABEND MITTEILEN",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/19April_2010_Monday_heute-782.mp4",
+      "generation_seed": 99
+    },
+    {
+      "rank": 58,
+      "id": "06October_2011_Thursday_tagesschau-823",
+      "video": "06October_2011_Thursday_tagesschau-823.mp4",
+      "text": "im westen und nordwesten fallen einzelne schauer",
+      "prompt_text": "im westen und nordwesten fallen einzelne schauer",
+      "reference_gloss": "WEST NORDWEST IX SCHAUER IX",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/06October_2011_Thursday_tagesschau-823.mp4",
+      "generation_seed": 100
+    },
+    {
+      "rank": 59,
+      "id": "06October_2011_Thursday_tagesschau-825",
+      "video": "06October_2011_Thursday_tagesschau-825.mp4",
+      "text": "frischer wind mit starken bis stürmischen böen bei schauern an der nordsee und auf den bergen teilweise sturmböen",
+      "prompt_text": "frischer wind mit starken bis stürmischen böen bei schauern an der nordsee und auf den bergen teilweise sturmböen",
+      "reference_gloss": "WEHEN REGION FRISCH WIND SCHAUER IX",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/06October_2011_Thursday_tagesschau-825.mp4",
+      "generation_seed": 101
+    },
+    {
+      "rank": 60,
+      "id": "04December_2009_Friday_tagesschau-833",
+      "video": "04December_2009_Friday_tagesschau-833.mp4",
+      "text": "und nun die wettervorhersage für morgen samstag den fünften dezember",
+      "prompt_text": "und nun die wettervorhersage für morgen samstag den fünften dezember",
+      "reference_gloss": "MORGEN SAMSTAG FUENFTE DEZEMBER WIE-AUSSEHEN WETTER",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/04December_2009_Friday_tagesschau-833.mp4",
+      "generation_seed": 102
+    },
+    {
+      "rank": 61,
+      "id": "04December_2009_Friday_tagesschau-834",
+      "video": "04December_2009_Friday_tagesschau-834.mp4",
+      "text": "nach einer kurzen wetterberuhigung erreicht uns morgen von westen ein neuer tiefausläufer",
+      "prompt_text": "nach einer kurzen wetterberuhigung erreicht uns morgen von westen ein neuer tiefausläufer",
+      "reference_gloss": "WETTER BISSCHEN RUHIG DANN MORGEN IX REGION TIEF KOMMEN",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/04December_2009_Friday_tagesschau-834.mp4",
+      "generation_seed": 103
+    },
+    {
+      "rank": 62,
+      "id": "04December_2009_Friday_tagesschau-835",
+      "video": "04December_2009_Friday_tagesschau-835.mp4",
+      "text": "der sorgt wieder für wolken die regen im bergland auch schnee bringen",
+      "prompt_text": "der sorgt wieder für wolken die regen im bergland auch schnee bringen",
+      "reference_gloss": "WOLKE REGEN WENN BERG IX AUCH SCHNEE SCHNEIEN",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/04December_2009_Friday_tagesschau-835.mp4",
+      "generation_seed": 104
+    },
+    {
+      "rank": 63,
+      "id": "04December_2009_Friday_tagesschau-844",
+      "video": "04December_2009_Friday_tagesschau-844.mp4",
+      "text": "ab sonntag wird es wieder milder dabei gibt es viele wolken zeitweise fällt regen im nordwesten windig",
+      "prompt_text": "ab sonntag wird es wieder milder dabei gibt es viele wolken zeitweise fällt regen im nordwesten windig",
+      "reference_gloss": "SONNTAG MEHR MILD VIEL WOLKE REGEN NORDWEST WIND",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/04December_2009_Friday_tagesschau-844.mp4",
+      "generation_seed": 105
+    },
+    {
+      "rank": 64,
+      "id": "04December_2009_Friday_tagesschau-845",
+      "video": "04December_2009_Friday_tagesschau-845.mp4",
+      "text": "montag und dienstag wechselhaft hier und da zeigt sich aber auch die sonne",
+      "prompt_text": "montag und dienstag wechselhaft hier und da zeigt sich aber auch die sonne",
+      "reference_gloss": "MONTAG DIENSTAG WECHSELHAFT MAL AUCH SONNE",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/04December_2009_Friday_tagesschau-845.mp4",
+      "generation_seed": 106
+    },
+    {
+      "rank": 65,
+      "id": "11July_2011_Monday_tagesschau-849",
+      "video": "11July_2011_Monday_tagesschau-849.mp4",
+      "text": "heute nacht ist es meist nur locker bewölkt oder klar im nordwesten gibt es auch mal ein paar dichtere wolken",
+      "prompt_text": "heute nacht ist es meist nur locker bewölkt oder klar im nordwesten gibt es auch mal ein paar dichtere wolken",
+      "reference_gloss": "HEUTE NACHT MEHR LOCKER WOLKE ODER KLAR STERN SEHEN NORDWEST WOLKE",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/11July_2011_Monday_tagesschau-849.mp4",
+      "generation_seed": 107
+    },
+    {
+      "rank": 66,
+      "id": "28July_2010_Wednesday_tagesschau-864",
+      "video": "28July_2010_Wednesday_tagesschau-864.mp4",
+      "text": "morgen muss verbreitet mit teilweise kräftigen schauern und gewittern gerechnet werden",
+      "prompt_text": "morgen muss verbreitet mit teilweise kräftigen schauern und gewittern gerechnet werden",
+      "reference_gloss": "MORGEN TATSAECHLICH REGEN GEWITTER KOENNEN",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/28July_2010_Wednesday_tagesschau-864.mp4",
+      "generation_seed": 108
+    },
+    {
+      "rank": 67,
+      "id": "28July_2010_Wednesday_tagesschau-871",
+      "video": "28July_2010_Wednesday_tagesschau-871.mp4",
+      "text": "am samstag überwiegend freundlich meist trocken und wärmer",
+      "prompt_text": "am samstag überwiegend freundlich meist trocken und wärmer",
+      "reference_gloss": "SAMSTAG MEHR FREUNDLICH TROCKEN MEHR WARM",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/28July_2010_Wednesday_tagesschau-871.mp4",
+      "generation_seed": 109
+    },
+    {
+      "rank": 68,
+      "id": "28July_2010_Wednesday_tagesschau-872",
+      "video": "28July_2010_Wednesday_tagesschau-872.mp4",
+      "text": "am sonntag ziehen von nordwesten wieder schauer und gewitter heran",
+      "prompt_text": "am sonntag ziehen von nordwesten wieder schauer und gewitter heran",
+      "reference_gloss": "SONNTAG REGION REGEN GEWITTER KOMMEN",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/28July_2010_Wednesday_tagesschau-872.mp4",
+      "generation_seed": 110
+    },
+    {
+      "rank": 69,
+      "id": "23October_2010_Saturday_tagesschau-895",
+      "video": "23October_2010_Saturday_tagesschau-895.mp4",
+      "text": "an der nordsee sowie auf den bergen schwere sturmböen",
+      "prompt_text": "an der nordsee sowie auf den bergen schwere sturmböen",
+      "reference_gloss": "IX MEER SCHWER STURM",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/23October_2010_Saturday_tagesschau-895.mp4",
+      "generation_seed": 111
+    },
+    {
+      "rank": 70,
+      "id": "23October_2010_Saturday_tagesschau-896",
+      "video": "23October_2010_Saturday_tagesschau-896.mp4",
+      "text": "unter wolken heute nacht frostfreie zwei bis acht grad",
+      "prompt_text": "unter wolken heute nacht frostfreie zwei bis acht grad",
+      "reference_gloss": "WOLKE DAS-IST-ES NACHT ZWEI BIS ACHT neg-HABEN FROST",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/23October_2010_Saturday_tagesschau-896.mp4",
+      "generation_seed": 112
+    },
+    {
+      "rank": 71,
+      "id": "31March_2010_Wednesday_tagesschau-999",
+      "video": "31March_2010_Wednesday_tagesschau-999.mp4",
+      "text": "und nun die wettervorhersage für morgen donnerstag den ersten april",
+      "prompt_text": "und nun die wettervorhersage für morgen donnerstag den ersten april",
+      "reference_gloss": "MORGEN WETTER WIE-AUSSEHEN ERSTE APRIL DONNERSTAG",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/31March_2010_Wednesday_tagesschau-999.mp4",
+      "generation_seed": 113
+    },
+    {
+      "rank": 72,
+      "id": "31March_2010_Wednesday_tagesschau-1000",
+      "video": "31March_2010_Wednesday_tagesschau-1000.mp4",
+      "text": "das tief bei schottland sorgt zusammen mit kühler luft auch morgen für wechselhaftes wetter",
+      "prompt_text": "das tief bei schottland sorgt zusammen mit kühler luft auch morgen für wechselhaftes wetter",
+      "reference_gloss": "HEUTE NACHT TIEF KOMMEN AUCH KUEHL AUFZIEHEN MORGEN WECHSELHAFT WETTER",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/31March_2010_Wednesday_tagesschau-1000.mp4",
+      "generation_seed": 114
+    },
+    {
+      "rank": 73,
+      "id": "31March_2010_Wednesday_tagesschau-1008",
+      "video": "31March_2010_Wednesday_tagesschau-1008.mp4",
+      "text": "am freitag mal sonne mal wolken und nur einzelne schauer stellenweise zeigt sich die sonne auch für längere zeit",
+      "prompt_text": "am freitag mal sonne mal wolken und nur einzelne schauer stellenweise zeigt sich die sonne auch für längere zeit",
+      "reference_gloss": "FREITAG SONNE WOLKE WECHSELHAFT SCHAUER KOENNEN IX ABER SONNE LANG",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/31March_2010_Wednesday_tagesschau-1008.mp4",
+      "generation_seed": 115
+    },
+    {
+      "rank": 74,
+      "id": "29October_2009_Thursday_tagesschau-1013",
+      "video": "29October_2009_Thursday_tagesschau-1013.mp4",
+      "text": "und so erwartet uns eine mischung aus teilweise zähen nebelfeldern wolken und sonnenschein",
+      "prompt_text": "und so erwartet uns eine mischung aus teilweise zähen nebelfeldern wolken und sonnenschein",
+      "reference_gloss": "MISCHUNG NEBEL AUFLOESEN DANN WOLKE SONNE",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/29October_2009_Thursday_tagesschau-1013.mp4",
+      "generation_seed": 116
+    },
+    {
+      "rank": 75,
+      "id": "29October_2009_Thursday_tagesschau-1024",
+      "video": "29October_2009_Thursday_tagesschau-1024.mp4",
+      "text": "die neue woche beginnt wechselhaft und kühler",
+      "prompt_text": "die neue woche beginnt wechselhaft und kühler",
+      "reference_gloss": "MONTAG ANFANG WECHSELHAFT MEHR KUEHL",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/29October_2009_Thursday_tagesschau-1024.mp4",
+      "generation_seed": 117
+    },
+    {
+      "rank": 76,
+      "id": "27April_2010_Tuesday_heute-1028",
+      "video": "27April_2010_Tuesday_heute-1028.mp4",
+      "text": "da haben wir morgen schon die dreißig grad morgen im süden von frankreich auch und für uns wahrscheinlich schon im südwesten die fünfundzwanzig grad",
+      "prompt_text": "da haben wir morgen schon die dreißig grad morgen im süden von frankreich auch und für uns wahrscheinlich schon im südwesten die fünfundzwanzig grad",
+      "reference_gloss": "SCHON MORGEN DREISSIG GRAD SUED FRANKREICH AUCH WARM HIER DEUTSCH LAND SCHON SUEDWEST FUENF ZWANZIG GRAD",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/27April_2010_Tuesday_heute-1028.mp4",
+      "generation_seed": 118
+    },
+    {
+      "rank": 77,
+      "id": "27April_2010_Tuesday_heute-1038",
+      "video": "27April_2010_Tuesday_heute-1038.mp4",
+      "text": "ja der donnerstag wird fast noch schöner noch ein bisschen wärmer",
+      "prompt_text": "ja der donnerstag wird fast noch schöner noch ein bisschen wärmer",
+      "reference_gloss": "DONNERSTAG MEHR SCHOEN MEHR WARM",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/27April_2010_Tuesday_heute-1038.mp4",
+      "generation_seed": 119
+    },
+    {
+      "rank": 78,
+      "id": "27April_2010_Tuesday_heute-1039",
+      "video": "27April_2010_Tuesday_heute-1039.mp4",
+      "text": "gegen späten nachmittag oder abend gibt es wahrscheinlich die ersten regenschauer im nordwesten",
+      "prompt_text": "gegen späten nachmittag oder abend gibt es wahrscheinlich die ersten regenschauer im nordwesten",
+      "reference_gloss": "NACH MITTAG ABEND BISSCHEN REGEN NORD WEST",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/27April_2010_Tuesday_heute-1039.mp4",
+      "generation_seed": 120
+    },
+    {
+      "rank": 79,
+      "id": "06September_2010_Monday_tagesschau-1147",
+      "video": "06September_2010_Monday_tagesschau-1147.mp4",
+      "text": "schwacher bis mäßiger im norden auch frischer wind aus ost bis südost an der nordsee und auf den bergen ist er stark mit stürmischen böen",
+      "prompt_text": "schwacher bis mäßiger im norden auch frischer wind aus ost bis südost an der nordsee und auf den bergen ist er stark mit stürmischen böen",
+      "reference_gloss": "SCHWACH NORD STURM WEHEN NORD SUED SCHWER WEHEN STURM",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/06September_2010_Monday_tagesschau-1147.mp4",
+      "generation_seed": 121
+    },
+    {
+      "rank": 80,
+      "id": "06September_2010_Monday_tagesschau-1153",
+      "video": "06September_2010_Monday_tagesschau-1153.mp4",
+      "text": "am donnerstag noch unbeständig aber ab freitag wird es von westen langsam freundlicher",
+      "prompt_text": "am donnerstag noch unbeständig aber ab freitag wird es von westen langsam freundlicher",
+      "reference_gloss": "DONNERSTAG WECHSELHAFT FREITAG WEST KOMMEN FREUNDLICH",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/06September_2010_Monday_tagesschau-1153.mp4",
+      "generation_seed": 122
+    },
+    {
+      "rank": 81,
+      "id": "06November_2010_Saturday_tagesschau-1162",
+      "video": "06November_2010_Saturday_tagesschau-1162.mp4",
+      "text": "schwacher bis mäßiger auf den bergen in böen auch starker wind in der nordhälfte aus ost bis nordost sonst aus unterschiedlichen richtungen",
+      "prompt_text": "schwacher bis mäßiger auf den bergen in böen auch starker wind in der nordhälfte aus ost bis nordost sonst aus unterschiedlichen richtungen",
+      "reference_gloss": "SCHWACH WEHEN BERG WEHEN NORD WEHEN IX WEHEN",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/06November_2010_Saturday_tagesschau-1162.mp4",
+      "generation_seed": 123
+    },
+    {
+      "rank": 82,
+      "id": "04June_2010_Friday_tagesschau-1173",
+      "video": "04June_2010_Friday_tagesschau-1173.mp4",
+      "text": "der wind weht meist schwach und kommt aus unterschiedlichen richtungen",
+      "prompt_text": "der wind weht meist schwach und kommt aus unterschiedlichen richtungen",
+      "reference_gloss": "WIND SCHWACH VERSCHIEDEN WEHEN",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/04June_2010_Friday_tagesschau-1173.mp4",
+      "generation_seed": 124
+    },
+    {
+      "rank": 83,
+      "id": "04June_2010_Friday_tagesschau-1176",
+      "video": "04June_2010_Friday_tagesschau-1176.mp4",
+      "text": "am montag ist es wechselhaft mal sonne mal wolken vor allem in der osthälfte einige kräftige schauer und gewitter",
+      "prompt_text": "am montag ist es wechselhaft mal sonne mal wolken vor allem in der osthälfte einige kräftige schauer und gewitter",
+      "reference_gloss": "MONTAG WECHSELHAFT MAL SONNE WOLKE BESONDERS REGION SCHAUER GEWITTER",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/04June_2010_Friday_tagesschau-1176.mp4",
+      "generation_seed": 125
+    },
+    {
+      "rank": 84,
+      "id": "09August_2009_Sunday_tagesschau-1186",
+      "video": "09August_2009_Sunday_tagesschau-1186.mp4",
+      "text": "abseits der gewitter schwacher bis mäßiger wind",
+      "prompt_text": "abseits der gewitter schwacher bis mäßiger wind",
+      "reference_gloss": "WIND SCHWACH SUED WIND ZEIGEN-BILDSCHIRM",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/09August_2009_Sunday_tagesschau-1186.mp4",
+      "generation_seed": 126
+    },
+    {
+      "rank": 85,
+      "id": "05July_2010_Monday_tagesschau-1202",
+      "video": "05July_2010_Monday_tagesschau-1202.mp4",
+      "text": "vom südwesten bis in die mitte bleibt es meist trocken",
+      "prompt_text": "vom südwesten bis in die mitte bleibt es meist trocken",
+      "reference_gloss": "SUEDWEST KOMMEN MEHR TROCKEN",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/05July_2010_Monday_tagesschau-1202.mp4",
+      "generation_seed": 127
+    },
+    {
+      "rank": 86,
+      "id": "05July_2010_Monday_tagesschau-1205",
+      "video": "05July_2010_Monday_tagesschau-1205.mp4",
+      "text": "morgen temperaturen von achtzehn grad an der küste bis sechsundzwanzig im breisgau",
+      "prompt_text": "morgen temperaturen von achtzehn grad an der küste bis sechsundzwanzig im breisgau",
+      "reference_gloss": "MORGEN ACHTZEHN NORD DANN SECHS ZWANZIG REGION",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/05July_2010_Monday_tagesschau-1205.mp4",
+      "generation_seed": 128
+    },
+    {
+      "rank": 87,
+      "id": "05October_2010_Tuesday_heute-1218",
+      "video": "05October_2010_Tuesday_heute-1218.mp4",
+      "text": "dazu weht ein starker wind vor allen dingen wieder über vorpommern aus südost",
+      "prompt_text": "dazu weht ein starker wind vor allen dingen wieder über vorpommern aus südost",
+      "reference_gloss": "WIND REGION",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/05October_2010_Tuesday_heute-1218.mp4",
+      "generation_seed": 129
+    },
+    {
+      "rank": 88,
+      "id": "27May_2010_Thursday_heute-1236",
+      "video": "27May_2010_Thursday_heute-1236.mp4",
+      "text": "ab sonntag geht es dann wieder abwärts es wird wechselhafter",
+      "prompt_text": "ab sonntag geht es dann wieder abwärts es wird wechselhafter",
+      "reference_gloss": "NAECHSTE SONNTAG WIEDER SCHLECHTER WECHSELHAFT",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/27May_2010_Thursday_heute-1236.mp4",
+      "generation_seed": 130
+    },
+    {
+      "rank": 89,
+      "id": "02August_2010_Monday_heute-1243",
+      "video": "02August_2010_Monday_heute-1243.mp4",
+      "text": "milder bleibt es unter den regenwolken im osten mit fünfzehn sechzehn grad",
+      "prompt_text": "milder bleibt es unter den regenwolken im osten mit fünfzehn sechzehn grad",
+      "reference_gloss": "DANN REGEN OST REGION MILD FUENFZEHN SECHSZEHN",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/02August_2010_Monday_heute-1243.mp4",
+      "generation_seed": 131
+    },
+    {
+      "rank": 90,
+      "id": "20June_2011_Monday_tagesschau-1249",
+      "video": "20June_2011_Monday_tagesschau-1249.mp4",
+      "text": "und nun die wettervorhersage für morgen dienstag den einundzwanzigsten juni",
+      "prompt_text": "und nun die wettervorhersage für morgen dienstag den einundzwanzigsten juni",
+      "reference_gloss": "JETZT WETTER VORAUS INFORMIEREN MORGEN DIENSTAG EINS ZWANZIG JUNI",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/20June_2011_Monday_tagesschau-1249.mp4",
+      "generation_seed": 132
+    },
+    {
+      "rank": 91,
+      "id": "20June_2011_Monday_tagesschau-1256",
+      "video": "20June_2011_Monday_tagesschau-1256.mp4",
+      "text": "an der saar heute nacht milde sechzehn an der elbe teilweise nur acht grad",
+      "prompt_text": "an der saar heute nacht milde sechzehn an der elbe teilweise nur acht grad",
+      "reference_gloss": "FLUSS MILD SECHSZEHN GRAD FLUSS NUR ACHT GRAD",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/20June_2011_Monday_tagesschau-1256.mp4",
+      "generation_seed": 133
+    },
+    {
+      "rank": 92,
+      "id": "20June_2011_Monday_tagesschau-1257",
+      "video": "20June_2011_Monday_tagesschau-1257.mp4",
+      "text": "am hochrhein morgen schwül warme dreißig an der nordsee frische achtzehn grad",
+      "prompt_text": "am hochrhein morgen schwül warme dreißig an der nordsee frische achtzehn grad",
+      "reference_gloss": "HOCH FLUSS WARM DREISSIG GRAD IX NORD FRISCH ACHTZEHN GRAD",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/20June_2011_Monday_tagesschau-1257.mp4",
+      "generation_seed": 134
+    },
+    {
+      "rank": 93,
+      "id": "12July_2011_Tuesday_heute-1283",
+      "video": "12July_2011_Tuesday_heute-1283.mp4",
+      "text": "und in dieser kühleren eigentlich angenehmeren luft gibt es am donnerstag zumindest im norden noch kräftigen regen stürmischen wind",
+      "prompt_text": "und in dieser kühleren eigentlich angenehmeren luft gibt es am donnerstag zumindest im norden noch kräftigen regen stürmischen wind",
+      "reference_gloss": "NORMAL KUEHL ANGENEHM JA DANN DONNERSTAG NORD REGEN STURM WEHEN KOENNEN",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/12July_2011_Tuesday_heute-1283.mp4",
+      "generation_seed": 135
+    },
+    {
+      "rank": 94,
+      "id": "02October_2010_Saturday_tagesschau-1300",
+      "video": "02October_2010_Saturday_tagesschau-1300.mp4",
+      "text": "sehr milde luft strömt zu uns",
+      "prompt_text": "sehr milde luft strömt zu uns",
+      "reference_gloss": "MILD WEHEN ICH",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/02October_2010_Saturday_tagesschau-1300.mp4",
+      "generation_seed": 136
+    },
+    {
+      "rank": 95,
+      "id": "18April_2011_Monday_tagesschau-1314",
+      "video": "18April_2011_Monday_tagesschau-1314.mp4",
+      "text": "und nun die wettervorhersage für morgen dienstag den neunzehnten april",
+      "prompt_text": "und nun die wettervorhersage für morgen dienstag den neunzehnten april",
+      "reference_gloss": "MORGEN WETTER WIE-AUSSEHEN DIENSTAG NEUNZEHN APRIL",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/18April_2011_Monday_tagesschau-1314.mp4",
+      "generation_seed": 137
+    },
+    {
+      "rank": 96,
+      "id": "22August_2010_Sunday_tagesschau-1344",
+      "video": "22August_2010_Sunday_tagesschau-1344.mp4",
+      "text": "morgen vielerorts schauer vor allem im süden und osten noch einige gewitter mitunter regnet es kräftig auch unwetter sind weiter möglich",
+      "prompt_text": "morgen vielerorts schauer vor allem im süden und osten noch einige gewitter mitunter regnet es kräftig auch unwetter sind weiter möglich",
+      "reference_gloss": "MORGEN ORT SCHAUER BESONDERS SUEDOST TATSAECHLICH GEWITTER HAUPTSAECHLICH REGEN UNWETTER MOEGLICH",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/22August_2010_Sunday_tagesschau-1344.mp4",
+      "generation_seed": 138
+    },
+    {
+      "rank": 97,
+      "id": "26October_2009_Monday_tagesschau-1394",
+      "video": "26October_2009_Monday_tagesschau-1394.mp4",
+      "text": "heute nacht ist es meist stark bewölkt örtlich regnet oder nieselt es etwas",
+      "prompt_text": "heute nacht ist es meist stark bewölkt örtlich regnet oder nieselt es etwas",
+      "reference_gloss": "HEUTE NACHT UEBERWIEGEND REGION ORT REGEN",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/26October_2009_Monday_tagesschau-1394.mp4",
+      "generation_seed": 139
+    },
+    {
+      "rank": 98,
+      "id": "26October_2009_Monday_tagesschau-1402",
+      "video": "26October_2009_Monday_tagesschau-1402.mp4",
+      "text": "richtung nordosten gibt es mehr wolken hier und da etwas regen",
+      "prompt_text": "richtung nordosten gibt es mehr wolken hier und da etwas regen",
+      "reference_gloss": "NORDOST MEHR WOLKE REGEN",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/26October_2009_Monday_tagesschau-1402.mp4",
+      "generation_seed": 140
+    },
+    {
+      "rank": 99,
+      "id": "26October_2009_Monday_tagesschau-1403",
+      "video": "26October_2009_Monday_tagesschau-1403.mp4",
+      "text": "am freitag scheint abseits der nebelgebiete häufig die sonne",
+      "prompt_text": "am freitag scheint abseits der nebelgebiete häufig die sonne",
+      "reference_gloss": "FREITAG WENN NEBEN AUFLOESEN SONNE",
+      "source_path": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos/26October_2009_Monday_tagesschau-1403.mp4",
+      "generation_seed": 141
+    }
+  ]
+}

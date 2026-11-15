@@ -1,0 +1,12 @@
+diff --git a/train_compress_vq_multicond.py b/train_compress_vq_multicond.py
+--- a/train_compress_vq_multicond.py
++++ b/train_compress_vq_multicond.py
+@@ -399,8 +399,6 @@ def log_valid(
+             ).mean()
+         valid_loss.append(distill_loss.item())
+-        if step>3:
+-            break
+ 
+     valid_loss = torch.tensor(valid_loss).mean()
+     logger.info(f"Valid loss: {valid_loss:.4f}")
+

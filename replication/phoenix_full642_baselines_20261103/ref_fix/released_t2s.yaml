@@ -1,0 +1,35 @@
+weight_dtype: fp16
+modules:
+  text_model: /SLURM/home/slurm_s202281480/.cache/huggingface/hub/models--sentence-transformers--clip-ViT-B-32-multilingual-v1/snapshots/58edf8cada9e398793dca955574a48cbb7f18be2
+  ckpt: /SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/checkpoints/RWTH/t2gpt.bin
+  clip_dim: 512
+  embed_dim: 512
+  block_size: 401
+  num_layers: 8
+  head_layers: 2
+  n_head: 8
+  drop_out_rate: 0
+  fc_rate: 4
+  codebook_size: 625
+  attn_type: global
+dataset:
+  frame_size:
+  - 272
+  - 224
+  frame_scale:
+  - 1.0
+  - 1.0
+  sample_rate: 1
+  roots:
+  - /SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb/test_processed_videos
+  sk_roots: null
+  hamer_roots: null
+  pose_roots: null
+  meta_paths:
+  - /SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/replication/phoenix_full642_baselines_20261103/ref_fix/metadata.json
+eval:
+  batch_size: 16
+  num_workers: 4
+  max_pose_len: 400
+  pose_size: 12
+  vq_frame_codes: 12

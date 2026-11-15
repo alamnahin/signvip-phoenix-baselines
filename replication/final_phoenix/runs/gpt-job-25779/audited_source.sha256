@@ -1,0 +1,4 @@
+73e959c27162df9070c486a92f7433697485f85f8894bef132c7b62ad83a4ab8  /SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/replication/final_phoenix/runs/gpt-job-25779/source_snapshot/decoded_fsq_metrics.py
+34707d5a43e0ed23930ba48202d969d39886e0301e11af7cc2510e666422d7e1  /SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/replication/final_phoenix/runs/gpt-job-25779/source_snapshot/gpt_dual_metrics.patch
+7ddf896e57326dcd8b5e7aaa41d23d1bd898cd1b1ffe29c6cee5d16f4ea88ba6  /SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/replication/final_phoenix/runs/gpt-job-25779/source_snapshot/multihead_t2vqpgpt.py
+5bd0f93b621572b70a2f2f1c95343245fb9e16b7a2024c999001d692bcfa20f4  /SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/replication/final_phoenix/runs/gpt-job-25779/source_snapshot/train_multihead_t2vqpgpt.py

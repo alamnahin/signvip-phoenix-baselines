@@ -1,0 +1,4 @@
+fsq_train=25742
+fsq_eval=25743
+gpt_train=25779
+gpt_eval=25780

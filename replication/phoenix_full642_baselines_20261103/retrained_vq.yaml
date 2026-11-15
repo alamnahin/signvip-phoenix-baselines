@@ -1,0 +1,56 @@
+seed: 42
+weight_dtype: fp32
+modules:
+  vae: /SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/checkpoints/RWTH/vae
+  unet_2d: /SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/checkpoints/RWTH/unet
+  scheduler: /SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/checkpoints/RWTH/scheduler
+  apperance_encoder: /SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/checkpoints/RWTH/appearance_encoder
+  condition_encoder: /SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/checkpoints/RWTH/condition_encoder.bin
+  condition_encoder_motion: /SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/checkpoints/RWTH/condition_encoder.bin
+  vq_model: /SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/replication/final_phoenix/runs/fsq-job-25742/workspace/train_fsq/20260911-0014/model-50000/condition_encoder/model.bin
+  mm: null
+  unet: /SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/checkpoints/RWTH/unet_with_mm.bin
+  empty_text_emb: /SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/checkpoints/RWTH/empty_text_emb.pt
+  condition_encoder_kwargs:
+    use_vq: true
+    vq_kwargs:
+      n_e: 625
+      vq_type: FSQ
+      fsq_levels:
+      - 5
+      - 5
+      - 5
+      - 5
+      quantizer_channels: 4
+      ch_mult:
+      - 1
+      - 2
+      - 4
+      - 8
+      input_size:
+      - 34
+      - 28
+  unet_additional_kwargs:
+    use_motion_module: true
+    motion_module_resolutions:
+    - 1
+    - 2
+    - 4
+    - 8
+    unet_use_cross_frame_attention: false
+    unet_use_temporal_attention: false
+    motion_module_type: Vanilla
+    motion_module_kwargs:
+      num_attention_heads: 8
+      num_transformer_block: 1
+      attention_block_types:
+      - Temporal_Self
+      - Temporal_Self
+      temporal_position_encoding: true
+      temporal_position_encoding_max_len: 32
+      temporal_attention_dim_div: 1
+      zero_initialize: true
+dataset:
+  frame_size:
+  - 272
+  - 224

@@ -1,0 +1,36 @@
+{
+  "dataset": "PHOENIX-2014T",
+  "split": "test",
+  "samples": 642,
+  "scope": "end-to-end text-to-token-to-video; predicted motion and duration",
+  "generation": {
+    "scheduler_steps": 50,
+    "guidance_scale": 3.5,
+    "seed_rule": "per-sample generation_seed from eval_spec.json",
+    "reference_image": "first frame of each source test video"
+  },
+  "models": {
+    "released": {
+      "gpt": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/checkpoints/RWTH/t2gpt.bin",
+      "fsq": "inside /SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/checkpoints/RWTH/condition_encoder.bin",
+      "generator": "released SignViP Stage I (checkpoints/RWTH)"
+    },
+    "retrained": {
+      "gpt": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/replication/final_phoenix/runs/gpt-job-25779/workspace/model-50000/t2pgpt/model.bin",
+      "fsq": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/replication/final_phoenix/runs/fsq-job-25742/workspace/train_fsq/20260911-0014/model-50000/condition_encoder/model.bin",
+      "generator": "released SignViP Stage I (checkpoints/RWTH), frozen",
+      "notes": "FSQ 50k FP32 with fsq_fp32_no_cast.patch; GPT 50k, global attention; same recipe as the final Isharah SignViP baseline"
+    }
+  },
+  "back_translation": "CorrNet+ Phoenix2014T released checkpoint, gloss recognition (not the SignViP paper video-to-spoken-text SLT model)",
+  "video_quality": "final_phoenix/evaluate_visual_metrics.py (I3D FVD, Inception FID, CLIP-FID, SSIM, PSNR, LPIPS; 16 uniformly sampled frames per clip) - same script as the SSL-DiT full-642 run of 2026-10-18",
+  "sha256": {
+    "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/checkpoints/RWTH/t2gpt.bin": "ee8fb86c0d894b86021ac1f5673efde979a0d2370d5337ed881d4094ec6bdf17",
+    "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/checkpoints/RWTH/condition_encoder.bin": "170a2b5bc12e230301ab690fe893b3be74113f0f532ebcf75ed25a68d915f273",
+    "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/replication/final_phoenix/runs/gpt-job-25779/workspace/model-50000/t2pgpt/model.bin": "9a6bf65994bb901ac9bb310ae82e161af9f0c9fbd89b450d28cf922fcd70dab0",
+    "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/replication/final_phoenix/runs/fsq-job-25742/workspace/train_fsq/20260911-0014/model-50000/condition_encoder/model.bin": "29d3f186f488a9bdc0a0a05403b4798151b33de2fd8d52ff991c1c87dbafc272",
+    "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/replication/phoenix_full642_baselines_20261103/eval_spec.json": "4f3171131f2ef2b588bc4d31a8af28ae0f31500a2d2d7629d8032281159d4563",
+    "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/replication/phoenix_full642_baselines_20261103/released_t2s.yaml": "da3436ed3418e532a5cf4825c4550dc351deeed981591d15868c6a8e0bb847df",
+    "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/replication/phoenix_full642_baselines_20261103/retrained_t2s.yaml": "5fcc0b3ff3b5b689ee41213edba9a23157708eb75852362eb919cb090a064521"
+  }
+}

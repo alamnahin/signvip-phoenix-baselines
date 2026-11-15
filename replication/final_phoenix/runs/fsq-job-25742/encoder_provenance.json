@@ -1,0 +1,9 @@
+{
+  "source": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/checkpoints/RWTH/condition_encoder.bin",
+  "source_sha256": "170a2b5bc12e230301ab690fe893b3be74113f0f532ebcf75ed25a68d915f273",
+  "source_tensor_count": 456,
+  "removed_vq_tensor_count": 270,
+  "retained_tensor_count": 186,
+  "retained_motion_tensor_count": 140,
+  "output": "/tmp/sv-final-fsq-25742/condition_encoder_without_vq.bin"
+}

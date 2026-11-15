@@ -1,0 +1,46 @@
+[
+  {
+    "name": "SignViP released checkpoint",
+    "videos": 642,
+    "requested": 642,
+    "recognition": {
+      "bleu_1_percent": 13.937282229965156,
+      "bleu_2_percent": 5.733995384256847,
+      "bleu_3_percent": 2.756120855906662,
+      "bleu_4_percent": 1.5345973860411695,
+      "rouge_l_f1_percent": 14.419641558198927,
+      "exact_sentence_accuracy_percent": 0.4672897196261682,
+      "wer_percent": 116.15853658536585
+    },
+    "quality": {
+      "fvd_i3d": 87.98689984488897,
+      "fid_inception": 13.907717619571628,
+      "ssim": 0.6114311749424634,
+      "psnr_db": 13.583938931889623,
+      "lpips_alex": 0.3150934470756519,
+      "clip_fid": 3.6742587242115476
+    }
+  },
+  {
+    "name": "SignViP corrected replication",
+    "videos": 642,
+    "requested": 642,
+    "recognition": {
+      "bleu_1_percent": 14.318134928821951,
+      "bleu_2_percent": 6.778347873224244,
+      "bleu_3_percent": 3.8086659582182776,
+      "bleu_4_percent": 2.4364103604440643,
+      "rouge_l_f1_percent": 15.451188155986681,
+      "exact_sentence_accuracy_percent": 0.6230529595015576,
+      "wer_percent": 115.71294559099437
+    },
+    "quality": {
+      "fvd_i3d": 95.38195364189937,
+      "fid_inception": 14.277113432582695,
+      "ssim": 0.6105698561811755,
+      "psnr_db": 13.612078736597132,
+      "lpips_alex": 0.3161706512516823,
+      "clip_fid": 3.3174588387870756
+    }
+  }
+]

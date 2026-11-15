@@ -1,0 +1,45 @@
+{
+  "protocol": {
+    "eval_spec": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/replication/phoenix_full642_baselines_20261103/eval_spec.json",
+    "requested_videos": 642,
+    "evaluated_videos": 642,
+    "missing_videos": [],
+    "temporal_alignment": "independent uniform sampling of 16 frames over each generated and ground-truth clip",
+    "spatial_alignment": "each sampled RGB frame resized to 224x224",
+    "fvd": "SignViP repository StyleGAN-V I3D TorchScript features",
+    "fid": "SignViP repository ImageNet Inception-v3 pool3 features",
+    "clip_fid": "OpenAI CLIP ViT-B/32 projected image embeddings (unnormalized)",
+    "lpips": "LPIPS 0.1.4, AlexNet backbone",
+    "paper_comparable": false,
+    "noncomparability_reason": "full 642-video test split and explicit local alignment; the paper does not release complete preprocessing/evaluator details"
+  },
+  "metrics": {
+    "fvd_i3d": 87.98689984488897,
+    "fid_inception": 13.907717619571628,
+    "ssim": 0.6114311749424634,
+    "psnr_db": 13.583938931889623,
+    "lpips_alex": 0.3150934470756519
+  },
+  "runtime": {
+    "lpips_version": "0.1.4",
+    "torch_version": "2.3.1+cu121"
+  },
+  "unavailable": {
+    "clip_fid": {
+      "value": 3.6742587242115476,
+      "reason": null
+    },
+    "identity_similarity": {
+      "value": null,
+      "reason": "The paper's identity detector/embedding protocol and checkpoint are unavailable."
+    },
+    "hand_ssim": {
+      "value": null,
+      "reason": "The paper's hand detector/cropping protocol and checkpoint are unavailable."
+    },
+    "comet": {
+      "value": null,
+      "reason": "CorrNet+ predicts glosses, not spoken-language translations required by COMET."
+    }
+  }
+}

@@ -1,0 +1,2 @@
+# Additional dependency used only by evaluate_visual_metrics.py.
+lpips==0.1.4

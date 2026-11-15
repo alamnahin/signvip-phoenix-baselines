@@ -1,0 +1,115 @@
+diff --git a/train_compress_vq_multicond.py b/train_compress_vq_multicond.py
+index 07f6f21..34597c8 100644
+--- a/train_compress_vq_multicond.py
++++ b/train_compress_vq_multicond.py
+@@ -1,4 +1,5 @@
+ import argparse
++import copy
+ import datetime
+ import logging
+ import math
+@@ -307,10 +308,16 @@ def log_valid(
+     global_step,
+     out_path,
+ ):
+-    weight_dtype = torch.float16
+     model.eval()
+     condition_encoder.eval()
+-    condition_encoder.to(device, weight_dtype)
++    teacher_dtype = next(model.origin_condition_encoder.parameters()).dtype
++
++    # The diffusion preview requires FP16, but validation must never cast the
++    # trainable FSQ model in-place. Use a disposable inference copy instead.
++    inference_dtype = torch.float16
++    validation_encoder = copy.deepcopy(
++        accelerator.unwrap_model(condition_encoder)
++    ).to(device=device, dtype=inference_dtype).eval()
+ 
+     scheduler = DDIMScheduler.from_pretrained(
+         cfg.modules.scheduler,
+@@ -321,15 +328,17 @@ def log_valid(
+         denoising_unet=model.unet,
+         scheduler=scheduler,
+         appearance_encoder=model.appearance_encoder,
+-        condition_encoder=condition_encoder,
++        condition_encoder=validation_encoder,
+         empty_text_emb=empty_text_emb,
+-    ).to(dtype=weight_dtype, device=device)
++    ).to(dtype=inference_dtype, device=device)
+ 
+-    ref_frame = valid_data["ref_frame"].unsqueeze(0).to(device, weight_dtype)
++    ref_frame = valid_data["ref_frame"].unsqueeze(0).to(device, inference_dtype)
+     tgt_frames = (valid_data["tgt_frames"].unsqueeze(0) / 2 + 0.5).cpu().clamp(0, 1)
+-    tgt_sk_frames = valid_data["tgt_sk_frames"].unsqueeze(0).to(device, weight_dtype)
++    tgt_sk_frames = valid_data["tgt_sk_frames"].unsqueeze(0).to(
++        device, inference_dtype
++    )
+     tgt_hamer_frames = (
+-        valid_data["tgt_hamer_frames"].unsqueeze(0).to(device, weight_dtype)
++        valid_data["tgt_hamer_frames"].unsqueeze(0).to(device, inference_dtype)
+     )
+ 
+     video_tensor = pipeline(
+@@ -347,8 +356,9 @@ def log_valid(
+     if accelerator.is_main_process:
+         save_video(video_tensor, out_path + f"/{global_step}.mp4", device, fps=24)
+ 
+-    del video_tensor
++    del video_tensor, pipeline, validation_encoder
+     torch.cuda.empty_cache()
++    accelerator.wait_for_everyone()
+ 
+     valid_loss = []
+     for step, batch in tqdm(
+@@ -364,13 +374,14 @@ def log_valid(
+         tgt_hamer_frames = rearrange(tgt_hamer_frames, "b c f h w -> (b f) c h w")
+ 
+         # Replace with this - compute loss per-process first, then aggregate only the loss values
+-        with torch.cuda.amp.autocast(enabled=True):
++        with torch.cuda.amp.autocast(enabled=False):
+             sk_cond, perplexity, vq_loss = condition_encoder.encode(
+                 tgt_sk_frames, tgt_hamer_frames, return_indices=False
+             )
+ 
+             origin_cond = model.origin_condition_encoder.encode(
+-                tgt_sk_frames, tgt_hamer_frames
++                tgt_sk_frames.to(dtype=teacher_dtype),
++                tgt_hamer_frames.to(dtype=teacher_dtype),
+             )
+ 
+             # Calculate loss locally before gathering
+@@ -391,7 +402,6 @@ def log_valid(
+     valid_loss = torch.tensor(valid_loss).mean()
+     logger.info(f"Valid loss: {valid_loss:.4f}")
+ 
+-    condition_encoder.to(device, torch.float32)
+     return valid_loss
+ 
+ 
+@@ -564,8 +574,14 @@ def main():
+         )
+     )
+ 
+-    weight_dtype = torch.float16
+-
++    actual_trainable_dtypes = {param.dtype for param in trainable_params}
++    if actual_trainable_dtypes != {weight_dtype}:
++        raise RuntimeError(
++            f"Trainable FSQ dtype mismatch: configured={weight_dtype}, "
++            f"actual={sorted(map(str, actual_trainable_dtypes))}"
++        )
++    logger.info(f"Trainable FSQ dtype: {weight_dtype}")
++    teacher_dtype = next(model.origin_condition_encoder.parameters()).dtype
+     num_steps_per_epoch = math.ceil(
+         len(dataloader) / cfg.solver.gradient_accumulation_steps
+     )
+@@ -662,7 +678,8 @@ def main():
+                     tgt_sk_frames, tgt_hamer_frames, return_indices=False
+                 )
+                 origin_cond = model.origin_condition_encoder.encode(
+-                    tgt_sk_frames, tgt_hamer_frames
++                    tgt_sk_frames.to(dtype=teacher_dtype),
++                    tgt_hamer_frames.to(dtype=teacher_dtype),
+                 )
+ 
+                 distill_loss = func.mse_loss(sk_cond.float(), origin_cond.float())

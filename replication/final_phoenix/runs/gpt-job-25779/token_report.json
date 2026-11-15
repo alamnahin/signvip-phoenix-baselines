@@ -1,0 +1,10 @@
+{
+  "clips": 7615,
+  "frames": 883129,
+  "pose_size": 12,
+  "codebook_size": 625,
+  "minimum_token": 0,
+  "maximum_token": 624,
+  "active_codes": 625,
+  "token_perplexity": 603.6027712939135
+}

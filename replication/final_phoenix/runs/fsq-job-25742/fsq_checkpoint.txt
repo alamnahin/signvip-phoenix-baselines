@@ -1,0 +1,1 @@
+/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/replication/final_phoenix/runs/fsq-job-25742/workspace/train_fsq/20260911-0014/model-50000/condition_encoder/model.bin

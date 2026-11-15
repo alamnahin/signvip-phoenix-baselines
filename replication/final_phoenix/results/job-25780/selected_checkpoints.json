@@ -1,0 +1,78 @@
+{
+  "raw_dtw_protocol": "released-code categorical DTW over token IDs, prediction truncated to ground-truth flattened-token length",
+  "decoded_dtw_protocol": "exact temporal DTW over pooled continuous FSQ-decoder features; prediction and target are decoded from their categorical FSQ tokens",
+  "selected": {
+    "best_raw_dtw": {
+      "step": 2000,
+      "checkpoint": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/replication/final_phoenix/runs/gpt-job-25779/workspace/model-2000/t2pgpt/model.bin",
+      "validation": {
+        "decoded_dtw_score": 0.26292405202381663,
+        "invalid_prediction_rate": 0.0,
+        "one_frame_prediction_rate": 0.0,
+        "predicted_active_codes": 288,
+        "predicted_code_perplexity": 59.0801747746284,
+        "predicted_gt_length_ratio": 3.743629011575128,
+        "premature_special_head_rate": 0.0013020833333333333,
+        "raw_token_dtw_score": 150.19471959317815,
+        "rollout_token_accuracy": 0.007166919852798443,
+        "static_prediction_rate": 0.859375,
+        "step": 2000,
+        "target_active_codes": 625,
+        "target_code_perplexity": 596.4221420500538,
+        "teacher_forced_accuracy": 0.1600551386123449,
+        "teacher_forced_loss": 3.8294787358962576,
+        "temporal_token_change_rate": 0.006318077387150626,
+        "valid_acc": 0.007166919852798443,
+        "validation_samples": 64
+      }
+    },
+    "best_decoded_dtw": {
+      "step": 2000,
+      "checkpoint": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/replication/final_phoenix/runs/gpt-job-25779/workspace/model-2000/t2pgpt/model.bin",
+      "validation": {
+        "decoded_dtw_score": 0.26292405202381663,
+        "invalid_prediction_rate": 0.0,
+        "one_frame_prediction_rate": 0.0,
+        "predicted_active_codes": 288,
+        "predicted_code_perplexity": 59.0801747746284,
+        "predicted_gt_length_ratio": 3.743629011575128,
+        "premature_special_head_rate": 0.0013020833333333333,
+        "raw_token_dtw_score": 150.19471959317815,
+        "rollout_token_accuracy": 0.007166919852798443,
+        "static_prediction_rate": 0.859375,
+        "step": 2000,
+        "target_active_codes": 625,
+        "target_code_perplexity": 596.4221420500538,
+        "teacher_forced_accuracy": 0.1600551386123449,
+        "teacher_forced_loss": 3.8294787358962576,
+        "temporal_token_change_rate": 0.006318077387150626,
+        "valid_acc": 0.007166919852798443,
+        "validation_samples": 64
+      }
+    },
+    "final": {
+      "step": 50000,
+      "checkpoint": "/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/replication/final_phoenix/runs/gpt-job-25779/workspace/model-50000/t2pgpt/model.bin",
+      "validation": {
+        "decoded_dtw_score": 0.37240941798389227,
+        "invalid_prediction_rate": 0.0,
+        "one_frame_prediction_rate": 0.0,
+        "predicted_active_codes": 625,
+        "predicted_code_perplexity": 577.0927215591171,
+        "predicted_gt_length_ratio": 0.9638220509168829,
+        "premature_special_head_rate": 0.0078125,
+        "raw_token_dtw_score": 160.06006143789546,
+        "rollout_token_accuracy": 0.005696665380299977,
+        "static_prediction_rate": 0.0,
+        "step": 50000,
+        "target_active_codes": 625,
+        "target_code_perplexity": 596.4221420500538,
+        "teacher_forced_accuracy": 0.025425026803492113,
+        "teacher_forced_loss": 19.617909838157964,
+        "temporal_token_change_rate": 0.796358761459955,
+        "valid_acc": 0.005696665380299977,
+        "validation_samples": 64
+      }
+    }
+  }
+}

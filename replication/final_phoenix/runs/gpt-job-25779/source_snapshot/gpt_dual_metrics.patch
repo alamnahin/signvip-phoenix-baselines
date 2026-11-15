@@ -1,0 +1,71 @@
+diff --git a/train_multihead_t2vqpgpt.py b/train_multihead_t2vqpgpt.py
+--- a/train_multihead_t2vqpgpt.py
++++ b/train_multihead_t2vqpgpt.py
+@@ -183,6 +183,10 @@ def log_valid(
+ 
+     valid_acc = []
+     dtw_scores = []
++    raw_dtw_scores = []
++    teacher_loss_sum = 0.0
++    teacher_correct = 0
++    teacher_tokens = 0
+     predicted_token_sets = []
+     target_token_sets = []
+     length_ratios = []
+@@ -222,6 +226,22 @@ def log_valid(
+         )
+         text_embeds = text_embeds["sentence_embedding"].to(weight_dtype)
+ 
++        teacher_input = pose_latents[:, : -cfg.pose_size]
++        teacher_logits = model(teacher_input, text_embeds)
++        teacher_loss_sum += func.cross_entropy(
++            rearrange(teacher_logits, "b l c -> b c l"),
++            pose_latents,
++            ignore_index=cfg.codebook_size + 1,
++            reduction="sum",
++        ).item()
++        teacher_predictions = teacher_logits.argmax(dim=-1)
++        teacher_mask = pose_latents != cfg.codebook_size + 1
++        teacher_correct += int(
++            ((teacher_predictions == pose_latents) & teacher_mask).sum().item()
++        )
++        teacher_tokens += int(teacher_mask.sum().item())
++        del teacher_input, teacher_logits, teacher_predictions, teacher_mask
++
+         pred_idx = accelerator.unwrap_model(model).sample(
+             text_embeds, cfg.max_pose_len + 1
+         )  # [bs, max_pose_len, pose_dim]
+@@ -239,6 +257,10 @@ def log_valid(
+             pred = pred_idx[i, : pose_len[i]]
+             gt = pose_latents[i, : pose_len[i]]
+             valid_acc.append((pred == gt).sum().item() / pose_len[i].item())
++            raw_distance, _ = fastdtw(
++                np.asarray(pred.detach().cpu()), np.asarray(gt.detach().cpu())
++            )
++            raw_dtw_scores.append(raw_distance / max(len(pred), len(gt)))
+             if use_decoded_dtw:
+                 gt_frames = ground_truth_frames(
+                     pose_latents[i], pose_len[i], cfg.pose_size, cfg.codebook_size
+@@ -319,6 +341,10 @@ def log_valid(
+                 premature_special_heads,
+                 evaluated_heads,
+                 len(dtw_scores),
++                sum(raw_dtw_scores),
++                teacher_loss_sum,
++                teacher_correct,
++                teacher_tokens,
+             ],
+             device=device,
+             dtype=torch.float64,
+@@ -354,8 +380,12 @@ def log_valid(
+         gt_active, gt_perplexity = distribution_metrics(target_counts)
+         mean_dtw = float(totals[1] / sample_count)
+         log_dict = {
++            "teacher_forced_loss": float(totals[12] / totals[14].clamp_min(1)),
++            "teacher_forced_accuracy": float(totals[13] / totals[14].clamp_min(1)),
++            "rollout_token_accuracy": float(totals[0] / sample_count),
+             "valid_acc": float(totals[0] / sample_count),
++            "raw_token_dtw_score": float(totals[11] / sample_count),
+             "decoded_dtw_score": mean_dtw,
+             "predicted_gt_length_ratio": float(totals[2] / sample_count),
+             "invalid_prediction_rate": float(totals[3] / sample_count),

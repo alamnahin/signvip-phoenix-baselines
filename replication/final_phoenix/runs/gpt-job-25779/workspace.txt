@@ -1,0 +1,1 @@
+/SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/replication/final_phoenix/runs/gpt-job-25779/workspace

@@ -1,0 +1,107 @@
+seed: 42
+weight_dtype: bf16
+stage_init: true
+max_pose_len: 400
+codebook_size: 625
+pose_size: 12
+p_keep: 0.6
+modules:
+  text_model: /SLURM/home/slurm_s202281480/.cache/huggingface/hub/models--sentence-transformers--clip-ViT-B-32-multilingual-v1/snapshots/58edf8cada9e398793dca955574a48cbb7f18be2
+  ckpt: null
+  embed_dim: 512
+  clip_dim: 512
+  block_size: 401
+  num_layers: 8
+  head_layers: 2
+  n_head: 8
+  drop_out_rate: 0
+  fc_rate: 4
+  codebook_size: 625
+  attn_type: global
+  head_type: default
+gradient_checkpointing: false
+solver:
+  max_train_steps: 50000
+  gradient_accumulation_steps: 1
+  max_grad_norm: 1.0
+  optimizer:
+    use_8bit_adam: true
+    learning_rate: 0.0002
+    adam_beta1: 0.9
+    adam_beta2: 0.999
+    adam_weight_decay: 1.0e-06
+    adam_epsilon: 1.0e-08
+  lr_scheduler:
+    name: cosine
+    lr_warmup_steps: 200
+dataset:
+  frame_size:
+  - 512
+  - 512
+  frame_scale:
+  - 1.0
+  - 1.0
+  frame_ratio:
+  - 0.9
+  - 1.0
+  roots:
+  - /SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/rgb
+  sk_roots: null
+  hamer_roots: null
+  pose_roots:
+  - /SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/replication/final_phoenix/runs/gpt-job-25779/tokens
+  meta_paths:
+  - /SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/train_meta.json
+  sample_rate: 1
+  num_frames: 1
+  ref_margin: 5
+  uncond_ratio: 1
+  mask_ratio: 0
+  mask_thershold: 0.85
+  skip_ratio: 0
+dataloader:
+  batch_size: 32
+  num_workers: 4
+validation_batch_size: 8
+validation_metric:
+  type: decoded_fsq_dtw
+  checkpoint: /SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/replication/final_phoenix/runs/fsq-job-25742/workspace/train_fsq/20260911-0014/model-50000/condition_encoder/model.bin
+  model_kwargs:
+    vq_type: FSQ
+    n_e: 625
+    in_channels: 512
+    quantizer_channels: 4
+    fsq_levels:
+    - 5
+    - 5
+    - 5
+    - 5
+    ch_mult:
+    - 1
+    - 2
+    - 4
+    - 8
+    input_size:
+    - 34
+    - 28
+  max_samples: 64
+  failure_penalty: 10.0
+  pool_size:
+  - 4
+  - 4
+  decode_chunk_size: 32
+resume_from_checkpoint: null
+checkpointing_steps: 2000
+valid_steps: 2000
+max_ckpt: 1
+max_model: 25
+noise_offset: 0
+clip_skip: 1
+snr_gamma: 0
+max_visible_frames: 6
+max_sin_pe_len: 1000
+validation_data:
+  pose_roots:
+  - /SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip/replication/final_phoenix/runs/gpt-job-25779/tokens
+  meta_paths:
+  - /SLURM/home/slurm_s202281480/karsl/DiffSynth-Studio/signvip_dit/data/phoenix2014t/dev_meta.json
